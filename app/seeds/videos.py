@@ -15,7 +15,7 @@ def seed_videos():
   )
 
   bobbie = Video(
-    user_id=1, title="HOW DO I USE THIS WEBSITE!!!!!", thumbnail="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
+    user_id=3, title="HOW DO I USE THIS WEBSITE!!!!!", thumbnail="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
     video_data="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
     updated_at=(datetime.now())
     )
