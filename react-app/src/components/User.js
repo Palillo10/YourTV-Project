@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 function User() {
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { userId } = useParams();
 
   useEffect(() => {
     if (!userId) {
@@ -26,10 +26,20 @@ function User() {
         <strong>User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>Username</strong> {user.channel_name}
       </li>
       <li>
         <strong>Email</strong> {user.email}
+      </li>
+      <li>
+        <strong>Full Name</strong> {user.full_name}
+      </li>
+      <li>
+        <div>
+
+          <strong>Avatar</strong>
+          <img src="https://dailynorthwestern.com/wp-content/uploads/2022/05/summerlunch-Gemma-DeCetra.png" alt='avatar' />
+        </div>
       </li>
     </ul>
   );
