@@ -16,4 +16,5 @@ def users():
 @login_required
 def user(id):
     user = User.query.get(id)
+    # print(user.datetime)
     return user.to_dict()
