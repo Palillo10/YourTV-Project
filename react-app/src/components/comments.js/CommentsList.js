@@ -20,9 +20,9 @@ const CommentsList = () => {
   if (!comments) return null
 
   return (<div>
-    {sessionUser && <>
+    {/* {sessionUser && <>
       <button onClick={() => setOpenCreateForm(!openCreateForm)}>Create Comment</button>
-      {openCreateForm && <CreateCommentForm user={sessionUser} />} </>}
+      {openCreateForm && <CreateCommentForm user={sessionUser} />} </>} */}
 
     {Object.values(comments).map(comment => (
       <div key={comment.id}>

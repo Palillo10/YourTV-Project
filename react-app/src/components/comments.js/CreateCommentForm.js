@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import { useState } from "react"
 import { addCommentThunk } from "../../store/comments"
 
-const CreateCommentForm = ({ user }) => {
+const CreateCommentForm = ({ user, video }) => {
   const dispatch = useDispatch()
   const [body, setBody] = useState('')
   const [errors, setErrors] = useState([])
@@ -10,7 +10,7 @@ const CreateCommentForm = ({ user }) => {
     e.preventDefault()
     const newComment = {
       user_id: user.id,
-      video_id: 1,
+      video_id: video.id,
       body,
     }
 

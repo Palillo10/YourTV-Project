@@ -15,7 +15,7 @@ class Video(db.Model):
 
 
   owner = db.relationship('User', back_populates="videos")
-  comments = db.relationship('Comment', back_populates="video")
+  comments = db.relationship('Comment', back_populates="video", cascade="all, delete")
 
   def to_dict(self):
     return {
