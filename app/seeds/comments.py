@@ -8,7 +8,7 @@ def seed_comments():
   )
 
   comment2 = Comment(
-    user_id=4, video_id=2, body='Thanks to everyone  who helped plany all these trees. Much Love', updated_at=(datetime.now())
+    user_id=4, video_id=2, body='Thanks to everyone  who helped plant all these trees. Much Love', updated_at=(datetime.now())
   )
 
   comment3 = Comment(

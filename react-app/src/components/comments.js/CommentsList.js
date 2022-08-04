@@ -26,6 +26,9 @@ const CommentsList = () => {
 
     {Object.values(comments).map(comment => (
       <div key={comment.id}>
+        <h2>
+          {comment.commenter.channel_name}
+        </h2>
         <h1>
           {comment.body}
         </h1>
