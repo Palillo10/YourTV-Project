@@ -54,7 +54,7 @@ def update_video(videoId):
     video.title = form.title.data
     video.description = form.description.data
     video.thumbnail = form.thumbnail.data
-    video.video_data = form.video_data.data
+    video.video_data = video.video_data
     video.updated_at = datetime.now()
 
     db.session.commit()

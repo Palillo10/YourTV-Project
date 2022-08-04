@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { getVideosThunk } from "../../store/videos"
+import EditVideoForm from "./EditVideoForm"
 
 
 const WatchVideo = () => {
@@ -17,13 +18,13 @@ const WatchVideo = () => {
   if (!video) return null
 
   return (<div>
-    <button>Edit</button>
 
     <h1> {video.title}</h1>
     <p> {video.description}</p>
     {/* <img src={video.video_data} /> */}
     <img src={video.thumbnail} style={{ width: "225px", height: "150px" }} />
     <p> {video.created_at}</p>
+    <EditVideoForm video={video} />
     <div>
       <h1>Comments</h1>
       {video.comments.map(comment => (
