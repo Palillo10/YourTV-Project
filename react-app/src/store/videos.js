@@ -51,10 +51,13 @@ export default function reducer(state = initialState, action) {
 export const getVideosThunk = () => async dispatch => {
   const response = await fetch('/api/videos/')
 
+  const data = await response.json()
+
   if (response.ok) {
-    const data = await response.json()
     dispatch(getVideosAction(data.videos))
     return data.videos
+  } else {
+    return 'ERROR'
   }
 }
 
@@ -67,10 +70,13 @@ export const addVideoThunk = (newVideo) => async dispatch => {
     body: JSON.stringify(newVideo)
   })
 
+  const data = await response.json()
+
   if (response.ok) {
-    const data = await response.json()
     dispatch(addVideoAction(data.newVideo))
     return data.newVideo
+  } else {
+    return data.errors
   }
 }
 
@@ -83,10 +89,13 @@ export const updateVideoThunk = (videoInfo) => async dispatch => {
     body: JSON.stringify(videoInfo)
   })
 
+  const data = await response.json()
+
   if (response.ok) {
-    const data = await response.json()
     dispatch(updateVideoAction(data.video))
     return data.video
+  } else {
+    return data.errors
   }
 
 }
@@ -100,5 +109,7 @@ export const deleteVideoThunk = (videoId) => async dispatch => {
     const data = await response.json()
     dispatch(deleteVideoAction(videoId))
     return data.deleted
+  } else {
+    return "ERROR"
   }
 }

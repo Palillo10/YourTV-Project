@@ -38,7 +38,7 @@ function User() {
         <div>
 
           <strong>Avatar</strong>
-          <img src="https://dailynorthwestern.com/wp-content/uploads/2022/05/summerlunch-Gemma-DeCetra.png" alt='avatar' />
+          <img src={user.avatar} alt='avatar' />
         </div>
       </li>
     </ul>

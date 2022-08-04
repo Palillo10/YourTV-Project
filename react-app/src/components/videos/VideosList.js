@@ -1,12 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink, Link } from 'react-router-dom'
 import { getVideosThunk } from '../../store/videos'
+import CreateVideoForm from './CreateVideoForm'
 
 const VideosList = () => {
   const dispatch = useDispatch()
   const videos = useSelector(state => state.videos)
-  console.log(Object.values(videos))
-
+  const sessionUser = useSelector(state => state.session.user)
+  const [openCreateForm, setOpenCreateForm] = useState(false)
 
   useEffect(() => {
     dispatch(getVideosThunk())
@@ -17,8 +19,14 @@ const VideosList = () => {
   if (!videos) return null
 
   return (<div>
+    {sessionUser && <>
+      <button onClick={() => setOpenCreateForm(!openCreateForm)}>Upload Video</button>
+      {openCreateForm && <CreateVideoForm user={sessionUser} />} </>}
+
     {Object.values(videos).map(video => (
-      <h2 key={video.id}>{video.title}</h2>
+      <h1 key={video.id}>
+        <Link to={`/watch-${video.id}`}>{video.title}</Link>
+      </h1>
     ))}
   </div>)
 

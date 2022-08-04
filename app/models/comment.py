@@ -21,5 +21,6 @@ class Comment(db.Model):
       'video_id': self.video_id,
       'body': self.body,
       'created_at': self.created_at,
-      'updated_at': self.updated_at
+      'updated_at': self.updated_at,
+      'commenter': self.commenter.to_dict()
     }

@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     channel_name = db.Column(db.String(40), nullable=False, unique=True)
     bio = db.Column(db.Text, nullable=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    avatar = db.Column(db.Text, nullable=True, default="https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png")
+    avatar = db.Column(db.Text, nullable=True, default="https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg")
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=(datetime.now()))
     updated_at = db.Column(db.DateTime, nullable=False)

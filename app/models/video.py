@@ -26,5 +26,7 @@ class Video(db.Model):
       'thumbnail': self.thumbnail,
       'video_data': self.video_data,
       'created_at': self.created_at,
-      'updated_at': self.updated_at
+      'updated_at': self.updated_at,
+      'owner': self.owner.to_dict(),
+      'comments': [comment.to_dict() for comment in self.comments]
     }

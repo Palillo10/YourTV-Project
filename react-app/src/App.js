@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import VideosList from './components/videos/VideosList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import WatchVideo from './components/videos/WatchVideo';
+import CommentsList from './components/comments.js/CommentsList';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,18 +37,24 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <Route path='/users' exact={true} >
           <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </Route>
+        <Route path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/videos' exact={true}>
+        </Route>
+        <Route path='/videos' exact={true}>
           <VideosList />
-        </ProtectedRoute >
-        <ProtectedRoute path='/' exact={true} >
+        </Route >
+        <Route path='/comments' exact={true}>
+          <CommentsList />
+        </Route >
+        <Route path={`/watch-:videoId`} exact={true}>
+          <WatchVideo />
+        </Route >
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
