@@ -30,7 +30,8 @@ const VideoTest = () => {
       setImageLoading(false);
       // a real app would probably use more advanced
       // error handling
-      console.log("error");
+      const data = await res.json()
+      console.log(data);
     }
   }
 
@@ -43,7 +44,7 @@ const VideoTest = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="file"
-        accept="image/*"
+        accept="video/*"
         onChange={updateImage}
       />
       <button type="submit">Submit</button>

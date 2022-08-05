@@ -101,6 +101,7 @@ def thumbnail_test(id):
   url = upload["url"]
   # flask_login allows us to get the current user from the request
   video = Video.query.get(id)
-  video.thumbnail = url
+  # video.thumbnail = url
+  video.video_data = url
   db.session.commit()
   return {"url": url}

@@ -23,8 +23,10 @@ const WatchVideo = () => {
     <video></video>
     <h1> {video.title}</h1>
     <p> {video.description}</p>
-    {/* <img src={video.video_data} /> */}
     <img src={video.thumbnail} style={{ width: "225px", height: "150px" }} />
+    <video controls style={{ width: "325px", height: "250px" }}>
+      <source src={video.video_data} type="video/mp4" />
+    </video>
     <p> {video.created_at}</p>
     <EditVideoForm video={video} />
     <div>
