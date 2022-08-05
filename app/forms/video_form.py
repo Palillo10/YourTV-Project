@@ -7,7 +7,7 @@ validators=[DataRequired()]
 
 class VideoForm(FlaskForm):
   user_id = IntegerField('Creator', validators)
-  title = StringField('Title', validators)
-  description = TextAreaField('Descripition', validators)
-  thumbnail = TextAreaField('Thumbnail', validators)
-  video_data = TextAreaField('Video', validators)
+  Title = StringField('Title', validators)
+  Description = TextAreaField('Descripition', validators)
+  Thumbnail = TextAreaField('Thumbnail', validators)
+  Video= TextAreaField('Video', validators)

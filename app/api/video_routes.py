@@ -32,10 +32,10 @@ def add_video():
   if form.validate_on_submit():
     new_video = Video(
       user_id = form.user_id.data,
-      title = form.title.data,
-      description = form.description.data,
-      thumbnail = form.thumbnail.data,
-      video_data = form.video_data.data,
+      title = form.Title.data,
+      description = form.Description.data,
+      thumbnail = form.Thumbnail.data,
+      video_data = form.Video.data,
       updated_at = datetime.now()
     )
 

@@ -4,19 +4,21 @@ import { addVideoThunk } from "../../store/videos"
 
 const CreateVideoForm = ({ user }) => {
   const dispatch = useDispatch()
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [thumbnail, setThumbnail] = useState('')
-  const [video_data, setVideo_Data] = useState('')
+  const [Title, setTitle] = useState('')
+  const [Description, setDescription] = useState('')
+  const [Thumbnail, setThumbnail] = useState(null)
+  const [video_data, setVideo_Data] = useState(null)
   const [errors, setErrors] = useState([])
+  const [imageLoading, setImageLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const newVideo = {
       user_id: user.id,
-      title,
-      description,
-      thumbnail,
-      video_data
+      Title,
+      Description,
+      Thumbnail,
+      Video: video_data
     }
 
     const res = await dispatch(addVideoThunk(newVideo))
@@ -25,8 +27,8 @@ const CreateVideoForm = ({ user }) => {
       setErrors([])
       setTitle('')
       setDescription('')
-      setThumbnail('')
-      setVideo_Data('')
+      setThumbnail(null)
+      setVideo_Data(null)
     } else {
       setErrors(res)
     }
@@ -40,20 +42,20 @@ const CreateVideoForm = ({ user }) => {
       ))}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="Title">Title</label>
           <input
-            id="title"
+            id="Title"
             type="text"
-            value={title}
+            value={Title}
             onChange={e => setTitle(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="description">Description</label>
+          <label htmlFor="Description">Description</label>
           <input
-            id="description"
+            id="Description"
             type="text"
-            value={description}
+            value={Description}
             onChange={e => setDescription(e.target.value)}
           />
         </div>
@@ -61,21 +63,22 @@ const CreateVideoForm = ({ user }) => {
           <label htmlFor="thumbnail">Thumbnail</label>
           <input
             id="thumbnail"
-            type="text"
-            value={thumbnail}
-            onChange={e => setThumbnail(e.target.value)}
+            type="file"
+            accept="image/*"
+            onChange={e => setThumbnail(e.target.files[0])}
           />
         </div>
         <div>
           <label htmlFor="video_data">Video</label>
           <input
             id="video_data"
-            type="text"
-            value={video_data}
-            onChange={e => setVideo_Data(e.target.value)}
+            type="file"
+            accept="video/*"
+            onChange={e => setVideo_Data(e.target.files[0])}
           />
         </div>
         <button>Confirm Upload</button>
+        {(imageLoading) && <p>Loading...</p>}
       </form>
     </fieldset>
   </div>)

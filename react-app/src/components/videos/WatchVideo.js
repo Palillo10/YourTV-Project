@@ -23,8 +23,7 @@ const WatchVideo = () => {
     <video></video>
     <h1> {video.title}</h1>
     <p> {video.description}</p>
-    <img src={video.thumbnail} style={{ width: "225px", height: "150px" }} />
-    <video controls style={{ width: "325px", height: "250px" }}>
+    <video poster={video.thumbnail} controls style={{ width: "325px", height: "250px" }}>
       <source src={video.video_data} type="video/mp4" />
     </video>
     <p> {video.created_at}</p>
@@ -35,7 +34,7 @@ const WatchVideo = () => {
         <button onClick={() => setOpenCreateForm(!openCreateForm)}>Create Comment</button>
         {openCreateForm && <CreateCommentForm user={sessionUser} video={video} />} </>}
       {video.comments.map(comment => (
-        <div>
+        <div key={comment.id}>
           <div> {comment.commenter.channel_name} </div>
           <div> {comment.body} </div>
 
