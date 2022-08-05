@@ -9,7 +9,7 @@ const CommentsList = () => {
   const dispatch = useDispatch()
   const comments = useSelector(state => state.comments)
   const sessionUser = useSelector(state => state.session.user)
-  const [openCreateForm, setOpenCreateForm] = useState(false)
+  // const [openCreateForm, setOpenCreateForm] = useState(false)
 
   useEffect(() => {
     dispatch(getCommentsThunk())

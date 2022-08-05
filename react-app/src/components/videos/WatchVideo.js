@@ -20,7 +20,7 @@ const WatchVideo = () => {
   if (!video) return null
 
   return (<div>
-
+    <video></video>
     <h1> {video.title}</h1>
     <p> {video.description}</p>
     {/* <img src={video.video_data} /> */}

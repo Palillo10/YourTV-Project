@@ -11,6 +11,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import WatchVideo from './components/videos/WatchVideo';
 import CommentsList from './components/comments.js/CommentsList';
+import VideoTest from './components/VIdeoTest';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </Route >
         <Route path={`/watch-:videoId`} exact={true}>
           <WatchVideo />
+        </Route >
+        <Route path={`/test`} exact={true}>
+          <VideoTest />
         </Route >
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
