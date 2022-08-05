@@ -3,8 +3,7 @@ from flask_login import login_required
 from datetime import datetime
 from app.models import Video, db
 from app.forms import VideoForm
-import cv2
-import numpy as np
+# import cv2
 from app.api.aws import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
