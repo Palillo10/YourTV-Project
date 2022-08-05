@@ -22,6 +22,10 @@ COPY /react-app/build/* app/static/
 # install psycopg2
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
+
+# This is for the cv2 dependency.
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 # Start the flask environment by setting our
 # closing command to gunicorn app:app
 CMD gunicorn app:app
