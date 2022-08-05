@@ -31,6 +31,7 @@ botocore = "==1.27.46"
 jmespath = "==1.0.1"
 numpy = "==1.23.1"
 s3transfer = "==0.6.0"
+urllib3 = "==1.26.11"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
