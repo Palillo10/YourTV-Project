@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { getVideosThunk } from "../../store/videos"
 import EditVideoForm from "./EditVideoForm"
 import CreateCommentForm from "../comments.js/CreateCommentForm"
+import { getCommentsThunk } from "../../store/comments"
 
 const WatchVideo = () => {
   const { videoId } = useParams()
@@ -14,6 +15,7 @@ const WatchVideo = () => {
 
   useEffect(() => {
     dispatch(getVideosThunk())
+    dispatch(getCommentsThunk(videoId))
   }, [dispatch])
 
 

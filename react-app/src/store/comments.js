@@ -29,6 +29,7 @@ export default function reducer(state = initialState, action) {
   let newState = { ...state }
   switch (action.type) {
     case GET_COMMENTS:
+      newState = {}
       action.comments.forEach(comment => {
         newState[comment.id] = comment
       })
@@ -48,11 +49,10 @@ export default function reducer(state = initialState, action) {
 }
 
 
-export const getCommentsThunk = () => async dispatch => {
-  const response = await fetch('/api/comments/')
+export const getCommentsThunk = (videoId) => async dispatch => {
+  const response = await fetch(`/api/comments/${videoId}`)
 
   const data = await response.json()
-
   if (response.ok) {
     dispatch(getCommentsAction(data.comments))
     return data.comments
