@@ -3,8 +3,8 @@ from flask_login import login_required
 from datetime import datetime
 from app.models import Video, db
 from app.forms import VideoForm
-import cv2
-import numpy as np
+# import cv2
+# import numpy as np
 from app.api.aws import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -77,19 +77,19 @@ def delete_video(videoId):
   return {"deleted": "deleted"}
 
 
-@video_routes.route('/test/<int:id>', methods=["POST"])
-def thumbnail_test(id):
-  if "image" not in request.files:
-    return {"errors": "image required"}, 400
+@video_routes.route('/upload-video', methods=["POST"])
+def thumbnail_test():
+  if "video" not in request.files:
+    return {"errors": "video : video required"}, 400
 
-  image = request.files["image"]
+  video = request.files["video"]
 
-  if not allowed_file(image.filename):
-      return {"errors": "file type not permitted"}, 400
+  if not allowed_file(video.filename):
+      return {"errors": "video : file type not permitted"}, 400
 
-  image.filename = get_unique_filename(image.filename)
+  video.filename = get_unique_filename(video.filename)
 
-  upload = upload_file_to_s3(image)
+  upload = upload_file_to_s3(video)
 
 
   if "url" not in upload:
@@ -100,8 +100,4 @@ def thumbnail_test(id):
 
   url = upload["url"]
   # flask_login allows us to get the current user from the request
-  video = Video.query.get(id)
-  # video.thumbnail = url
-  video.video_data = url
-  db.session.commit()
   return {"url": url}

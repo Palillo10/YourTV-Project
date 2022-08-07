@@ -16,11 +16,11 @@ def validation_errors_to_error_messages(validation_errors):
   return errorMessages
 
 
-@comment_routes.route('/')
-def comments():
-  comments = Comment.query.all()
+@comment_routes.route('/<int:id>')
+def comments(id):
+  comments = Comment.query.filter(Comment.video_id == id )
   return {'comments': [comment.to_dict() for comment in comments]}
-
+  # return {"hello"}
 
 @comment_routes.route('/', methods=["POST"])
 @login_required

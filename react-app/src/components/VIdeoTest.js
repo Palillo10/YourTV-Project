@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useHistory } from "react-router-dom";
 
 
@@ -12,19 +12,19 @@ const VideoTest = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
-
+    console.log(formData)
     // aws uploads can be a bit slow—displaying
     // some sort of loading message is a good idea
     setImageLoading(true);
 
-    const res = await fetch(`/api/videos/test/1`, {
+    const res = await fetch(`/api/videos/upload-video`, {
       method: "POST",
       body: formData,
     });
     if (res.ok) {
       await res.json();
       setImageLoading(false);
-      history.push("/videos");
+      // history.push("/videos");
     }
     else {
       setImageLoading(false);

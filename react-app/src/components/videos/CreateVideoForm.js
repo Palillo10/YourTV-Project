@@ -10,28 +10,45 @@ const CreateVideoForm = ({ user }) => {
   const [video_data, setVideo_Data] = useState(null)
   const [errors, setErrors] = useState([])
   const [imageLoading, setImageLoading] = useState(false);
+  const [status, setStatus] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const newVideo = {
-      user_id: user.id,
-      Title,
-      Description,
-      Thumbnail,
-      Video: video_data
+    const formData = new FormData();
+    formData.append("video", video_data)
+    setImageLoading(true);
+
+    const upload = await fetch('/api/videos/upload-video', {
+      method: "POST",
+      body: formData
+    })
+
+    const uploadData = await upload.json()
+    if (uploadData.errors) {
+      setErrors([uploadData.errors])
+    } else if (uploadData.url) {
+      const newVideo = {
+        user_id: user.id,
+        Title,
+        Description,
+        Thumbnail,
+        Video: uploadData.url
+      }
+
+      const res = await dispatch(addVideoThunk(newVideo))
+      if (res.id) {
+
+        setErrors([])
+        setTitle('')
+        setDescription('')
+        setThumbnail(null)
+        setVideo_Data(null)
+        setImageLoading(true);
+      } else {
+        setErrors(res)
+      }
     }
 
-    const res = await dispatch(addVideoThunk(newVideo))
-    if (res.id) {
-
-      setErrors([])
-      setTitle('')
-      setDescription('')
-      setThumbnail(null)
-      setVideo_Data(null)
-    } else {
-      setErrors(res)
-    }
 
   }
 
