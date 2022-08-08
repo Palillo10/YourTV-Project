@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import LoginForm from './functionality/auth/LoginForm';
+import SignUpForm from './functionality/auth/SignUpForm';
+import NavBar from './functionality/NavBar';
 // import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import VideosList from './components/videos/VideosList';
-import User from './components/User';
+import UsersList from './functionality/UsersList';
+import VideosList from './functionality/videos/VideosList';
+import User from './functionality/User';
 import { authenticate } from './store/session';
-import WatchVideo from './components/videos/WatchVideo';
-import CommentsList from './components/comments.js/CommentsList';
-import VideoTest from './components/VIdeoTest';
+import WatchVideo from './functionality/videos/WatchVideo';
+import CommentsList from './functionality/comments.js/CommentsList';
+import VideoTest from './functionality/VIdeoTest';
+import SideBar from './styling/SideBar/Siderbar';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +36,9 @@ function App() {
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
+        </Route>
+        <Route path='/sidebar' exact={true}>
+          <SideBar />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
