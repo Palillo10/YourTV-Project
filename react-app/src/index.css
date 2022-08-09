@@ -1,1 +1,31 @@
 /* TODO Add site wide styles */
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+  margin: 0;
+}
+
+#root {
+  /* border: black 1px solid; */
+  margin: 0;
+  min-height: 965px;
+  min-width: 1580px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#ModalBackground {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, .5);
+}

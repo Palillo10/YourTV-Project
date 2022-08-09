@@ -1,0 +1,77 @@
+.NavBarContainer {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  /* height: 30px; */
+  position: relative;
+}
+
+.tempsearchbar {
+  height: 50%;
+  width: 75%;
+  align-self: center;
+}
+
+.NavBarLeft {
+  /* border: red 1px solid; */
+  display: flex;
+  /* flex-direction: row; */
+  /* align-content: center; */
+  /* justify-content: space-around; */
+  width: 30%;
+}
+
+.NavBarCenter {
+  /* border: blue 1px solid; */
+  display: flex;
+  /* align-content: center; */
+  justify-content: center;
+  width: 35%;
+}
+
+.NavBarRight {
+  /* border: yellow 1px solid; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+
+.NavListItem {
+  /* border: yellow 1px solid;
+  background-color: #7fffd4; */
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.LogoContainer {
+  /* background-color: black;
+  border: yellow 1px solid; */
+  padding-top: 11px;
+  padding-bottom: 15px;
+  margin-left: 30px;
+}
+
+.LogoLink {
+
+  /* border: 1px solid aqua; */
+  display: flex;
+  align-items: center;
+}
+
+.LogoPlayButton {
+  background-color: #FF6F00;
+  height: 22px;
+  width: 31px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LogoTriangle {
+  background-color: aliceblue;
+  height: 10px;
+  width: 16px;
+  border-radius: 3px;
+
+}

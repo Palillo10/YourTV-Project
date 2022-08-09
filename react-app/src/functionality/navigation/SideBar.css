@@ -1,0 +1,17 @@
+.SideBarContainer {
+  border-right: 1px solid black;
+  width: 13%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 10;
+  /* overflow: hidden; */
+}
+
+.SideBarDiv {
+  /* border: 1px solid black; */
+  position: relative;
+  top: 13px;
+}

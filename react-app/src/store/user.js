@@ -1,5 +1,4 @@
 const GET_USERS = 'users/GET_USERS'
-const ADD_USER = 'users/ADD_USER'
 const DELETE_USER = 'users/DELETE_USER'
 const UPDATE_USER = 'users/UPDATE_USER'
 
