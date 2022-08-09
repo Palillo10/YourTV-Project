@@ -13,6 +13,7 @@ import WatchVideo from './functionality/videos/WatchVideo';
 import CommentsList from './functionality/comments.js/CommentsList';
 import VideoTest from './functionality/VIdeoTest';
 import SideBar from './functionality/navigation/Siderbar';
+import HomePage from './functionality/HomePage.js/HomePage';
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
           <VideoTest />
         </Route >
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </Route>
       </Switch>
     </BrowserRouter>

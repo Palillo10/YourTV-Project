@@ -60,18 +60,22 @@
 
 .LogoPlayButton {
   background-color: #FF6F00;
-  height: 22px;
-  width: 31px;
+  height: 20px;
+  width: 28px;
   border-radius: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
 }
 
 .LogoTriangle {
-  background-color: aliceblue;
-  height: 10px;
-  width: 16px;
-  border-radius: 3px;
+  /* background-color: aliceblue; */
+  /* height: 10px;
+  width: 16px; */
+  /* border-radius: 3px; */
+  border-left: 7px solid white;
+  border-bottom: transparent solid 4px;
+  border-top: transparent solid 4px;
 
 }
