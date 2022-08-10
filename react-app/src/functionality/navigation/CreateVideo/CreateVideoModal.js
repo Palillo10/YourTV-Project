@@ -19,7 +19,21 @@ const CreateVideoModal = () => {
     <UploadVideoIcon onClick={openModalIcon} />
     {openModal &&
       <div className="CreateVideoModal">
-        {phase1 && <div>phase1</div>
+        {phase1 && <div className="CreateVideoModalPhase1">
+          <div className="CreateVideoHeaders">
+            <div> Upload Video</div>
+            <div>X</div>
+          </div>
+          <div className="UploadVideoSection">
+            <div clasName="UploadVideoCenter">
+
+            </div>
+            <div className="UploadVideoBottom">
+
+            </div>
+          </div>
+        </div>
+
 
         }
         {phase2 && <div>pjase2 </div>
