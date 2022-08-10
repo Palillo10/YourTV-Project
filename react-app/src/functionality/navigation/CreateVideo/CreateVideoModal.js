@@ -32,10 +32,25 @@ const CreateVideoModal = ({ user }) => {
     setPhase1(true)
   }
 
+  const closeModal = () => {
+    setOpenModal(false)
+    const background = document.getElementById("ModalBackground")
+    background.style.display = "none"
+    setPhase1(false)
+    setPhase2(false)
+    setPhase3(false)
+    setErrors([])
+    setTitle('')
+    setDescription('')
+    setThumbnail(null)
+    setVideo_Data(null)
+    setImageLoading(false)
+  }
+
   const submitVideo = async (e) => {
     e.preventDefault()
     const formData = new FormData();
-    formData.append("image", video_data)
+    formData.append("video", video_data)
     setImageLoading(true);
 
     const upload = await fetch('/api/videos/upload-video', {
@@ -47,6 +62,10 @@ const CreateVideoModal = ({ user }) => {
     if (uploadData.errors) {
       setErrors([uploadData.errors])
     } else if (uploadData.url) {
+
+      setPhase1(false)
+      setPhase2(true)
+
       const newVideo = {
         user_id: user.id,
         Title,
@@ -55,17 +74,17 @@ const CreateVideoModal = ({ user }) => {
         Video: uploadData.url
       }
 
-      const res = await dispatch(addVideoThunk(newVideo))
-      if (res.id) {
+      // const res = await dispatch(addVideoThunk(newVideo))
+      // if (res.id) {
 
-        setErrors([])
-        setTitle('')
-        setDescription('')
-        setThumbnail(null)
-        setVideo_Data(null)
-      } else {
-        setErrors(res)
-      }
+      //   setErrors([])
+      //   setTitle('')
+      //   setDescription('')
+      //   setThumbnail(null)
+      //   setVideo_Data(null)
+      // } else {
+      //   setErrors(res)
+      // }
     }
 
     setImageLoading(false);
@@ -78,7 +97,7 @@ const CreateVideoModal = ({ user }) => {
         {phase1 && <div className="CreateVideoModalPhase1">
           <div className="CreateVideoHeaders">
             <div className="CreateVideoHeaderTitle"> Upload Video</div>
-            <button className="CreateVideoCloseX">X</button>
+            <button className="CreateVideoCloseX" onClick={closeModal}>X</button>
           </div>
           <div className="UploadVideoSection">
             <div className="UploadVideoCenter">
@@ -95,6 +114,10 @@ const CreateVideoModal = ({ user }) => {
                   <FileUploadIcon />
                 </button>
               </form>
+              <button onClick={() => {
+                setPhase1(false)
+                setPhase2(true)
+              }}>Next Phase</button>
               {errors.map(error => (
                 <div className="UploadVideoCenterErrors" key={error}> {error}</div>
               ))}
@@ -104,11 +127,30 @@ const CreateVideoModal = ({ user }) => {
             </div>
           </div>
         </div>
-
-
         }
-        {phase2 && <div>pjase2 </div>
+        {phase2 && <div className="CreateVideoModalPhase2">
+          <div className="CreateVideoHeaders">
+            <div className="CreateVideoHeaderTitle"> {video_data.name} </div>
+            <button className="CreateVideoCloseX" onClick={closeModal}>X</button>
+          </div>
+          <div className="AddVideoDetailsSection">
+            <div className="AddVideoDetailsHeader">
+              <div className="DetailsHeaderDetailNode">
+              </div>
+              <div className="DetailsNodeLine"></div>
+              <div className="DetailsHeaderThumbnailNode"> </div>
+              <div className="DetailsNodeLine"></div>
+              <div className="DetailsHeaderPreviewNode"> </div>
+            </div>
+            <div className="AddVideoDetailsMain">
+              <div className="AddVideoDetailsMainLeft"> </div>
+              <div className="AddVideoDetailsMainRight"> </div>
+            </div>
+          </div>
+          <div className="AddVideoDetailsBottom">
 
+          </div>
+        </div>
         }
         {phase3 && <div>phase3 </div>
 

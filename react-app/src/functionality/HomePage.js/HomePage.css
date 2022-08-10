@@ -20,10 +20,11 @@
 
 .RecommendedVideos {
   /* border: 1px solid black; */
+  /* max-width: 1000px; */
   display: flex;
   flex-wrap: wrap;
   padding-left: 200px;
-  padding-right: 200px;
+  /* padding-right: 200px; */
 }
 
 .VideoCardOuter {
