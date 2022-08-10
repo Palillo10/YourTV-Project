@@ -7,9 +7,87 @@
   background-color: white;
   z-index: 5;
   border-radius: 10px;
+
 }
 
 .CreateVideoHeaders {
   height: 100px;
-  background-color: aqua;
+  /* background-color: aqua; */
+  border-bottom: 1px solid rgb(120, 120, 120, .5);
+  /* box-shadow: 5px 5px; */
+  /* filter: blur(4px); */
+  /* border-radius: 8px; */
+}
+
+.CreateVideoHeaders {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CreateVideoCloseX {
+  width: 50px;
+  height: 50px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+
+}
+
+.CreateVideoCloseX:hover {
+  font-weight: 600;
+}
+
+.CreateVideoHeaderTitle {
+  font-size: 1.8rem;
+
+}
+
+
+.UploadVideoSection {
+  border: 1px solid aqua;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.UploadVideoCenter {
+  position: relative;
+  /* border: 1px solid red; */
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 100px;
+}
+
+.UploadVideoCenterForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+
+.UploadVideoFormIcon {
+  position: relative;
+  top: 50px;
+}
+
+.UploadVideoLoading {
+  position: relative;
+  bottom: 200px;
+  left: 50px;
+}
+
+.UploadVideoCenterErrors {
+  position: relative;
+  top: 80px;
+  /* left: 50px; */
+  color: red;
+  font-size: 1.5rem;
 }

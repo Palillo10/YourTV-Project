@@ -33,21 +33,21 @@
   align-items: center;
   /* border: 1px solid black; */
   height: 380px;
-  width: 365px;
+  width: 375px;
 
 
 }
 
 .VideoCardInner {
   /* border: 1px solid red; */
-  height: 310px;
-  width: 330px;
+  height: 320px;
+  width: 360px;
 
 }
 
 .UpperVideoCard {
   /* border: 1px solid black; */
-  height: 200px;
+  height: 210px;
   width: 100%;
   /* object-fit: contain; */
   /* overflow: hidden; */
@@ -56,8 +56,8 @@
 
 .VideoCardThumbnail {
   object-fit: fill;
-  height: 200px;
-  width: 328px;
+  height: 210px;
+  width: 355px;
   border: rgb(10, 10, 10, .5) 1px solid;
 }
 
