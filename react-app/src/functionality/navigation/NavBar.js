@@ -5,6 +5,8 @@ import SideBar from './Siderbar';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import { useSelector } from 'react-redux';
+import CreateVideoModal from './CreateVideo/CreateVideoModal';
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
@@ -23,6 +25,10 @@ const NavBar = () => {
           <NavLink to='/videos' exact={true} activeClassName='active'>
             Videos
           </NavLink>
+        </div>
+
+        <div className="NavListItem" >
+          <CreateVideoModal />
         </div>
 
         <div className="NavListItem">

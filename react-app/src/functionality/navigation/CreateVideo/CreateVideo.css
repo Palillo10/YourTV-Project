@@ -1,0 +1,10 @@
+.CreateVideoModal {
+  position: fixed;
+  /* top: 8%; */
+  left: 25%;
+  width: 1100px;
+  height: 1100px;
+  background-color: white;
+  z-index: 5;
+  border-radius: 10px;
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './SideBar.css'
+import MenuIcon from '@material-ui/icons/Menu';
 
 const SideBar = () => {
   const [openSideBar, setOpenSideBar] = useState(false)
@@ -20,11 +21,11 @@ const SideBar = () => {
   return (
 
     <div className='SideBarDiv'>
-      <button className="SideBarButton" onClick={openSideBarButton}>sidebar</button>
+      <MenuIcon className="SideBarMenuIcon" onClick={openSideBarButton} />
       {
         openSideBar && <div className="SideBarContainer">
           <div className='SideBarDiv'>
-            <button className="SideBarButton" onClick={closeSideBarButton}>sidebar</button>
+            <MenuIcon className="SideBarMenuIcon" onClick={closeSideBarButton} />
           </div>
         </div>
       }
