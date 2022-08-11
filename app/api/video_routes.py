@@ -81,12 +81,12 @@ def delete_video(videoId):
 @video_routes.route('/upload-video', methods=["POST"])
 def upload_video():
   if "video" not in request.files:
-    return {"errors": "video : video required"}, 400
+    return {"errors": "video : Video required"}, 400
 
   video = request.files["video"]
 
   if not allowed_file(video.filename):
-      return {"errors": "video : file type not permitted"}, 400
+      return {"errors": "video : Must be file type of '.mp4'"}, 400
 
   video.filename = get_unique_filename(video.filename)
 
@@ -112,12 +112,12 @@ def upload_thumbnail():
 
   print(request.files)
   if "image" not in request.files:
-    return {"errors": "image : image requiredZ"}, 400
+    return {"errors": "image : Image required for upload"}, 400
 
   image = request.files["image"]
 
   if not allowed_file(image.filename):
-      return {"errors": "image : file type not permitted"}, 400
+      return {"errors": "image : File type not permitted"}, 400
 
   image.filename = get_unique_filename(image.filename)
 

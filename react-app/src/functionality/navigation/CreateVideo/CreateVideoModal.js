@@ -1,39 +1,42 @@
-// import { useDispatch } from "react-redux"
-import { useState } from "react"
-// import { addVideoThunk } from "../../../store/videos"
+import { useDispatch } from "react-redux"
+import { useState, useEffect } from "react"
+import { addVideoThunk } from "../../../store/videos"
 import UploadVideoIcon from '@material-ui/icons/VideoCallOutlined'
 import './CreateVideo.css'
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 
 const CreateVideoModal = ({ user }) => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [openModal, setOpenModal] = useState(false)
   const [Title, setTitle] = useState('')
   const [Description, setDescription] = useState('')
   const [thumbnail_data, setThumbnail_data] = useState(null)
-  const [Thumbnail, setThumbnail] = useState('')
+  const [Thumbnail, setThumbnail] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU')
   const [video_data, setVideo_Data] = useState(null)
-  // const [videoUrl, setVideoUrl] = useState('')
+  const [videoUrl, setVideoUrl] = useState('')
   const [errors, setErrors] = useState([])
+  const [titleError, setTitleError] = useState('')
   const [phase1, setPhase1] = useState(false)
   const [phase2, setPhase2] = useState(false)
   const [phase3, setPhase3] = useState(false)
-  // const [phase4, setPhase4] = useState(false)
+  const [phase4, setPhase4] = useState(false)
   const [imageLoading, setImageLoading] = useState(false);
   const [selected, setSelected] = useState("Details")
+  const videoExamples = [1, 2, 3, 4, 5, 6]
 
 
-  // useEffect(() => {
-  //   const formErrors = []
-  //   if (Title.length > 100) {
-  //     formErrors.push("Title: Title cannot be over 100 characters")
-  //   }
-  //   if (Description.length > 5000) {
-  //     formErrors.push("Title: Title cannot be over 5000 characters")
-  //   }
-  //   setErrors(formErrors)
-  // }, [Title, Description])
+
+  useEffect(() => {
+    let formErrors = ''
+    if (Title.length === 0) {
+      formErrors = "Title: Your video requires a title. Update on 'Details' section."
+    }
+    setTitleError(formErrors)
+  }, [Title])
+
+
+
 
   const openModalIcon = () => {
     const background = document.getElementById("ModalBackground")
@@ -42,6 +45,10 @@ const CreateVideoModal = ({ user }) => {
     setPhase1(true)
   }
 
+
+
+
+
   const closeModal = () => {
     setOpenModal(false)
     const background = document.getElementById("ModalBackground")
@@ -49,13 +56,21 @@ const CreateVideoModal = ({ user }) => {
     setPhase1(false)
     setPhase2(false)
     setPhase3(false)
+    setPhase4(false)
+    setSelected("Details")
     setErrors([])
+    setTitleError('')
     setTitle('')
     setDescription('')
-    setThumbnail(null)
+    setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU')
+    setThumbnail_data(null)
     setVideo_Data(null)
+    setVideoUrl('')
     setImageLoading(false)
   }
+
+
+
 
   const submitVideo = async (e) => {
     e.preventDefault()
@@ -72,42 +87,24 @@ const CreateVideoModal = ({ user }) => {
     if (uploadData.errors) {
       setErrors([uploadData.errors])
     }
-    // else if (uploadData.url) {
-
-    //   setPhase1(false)
-    //   setPhase2(true)
-
-    //   const newVideo = {
-    //     user_id: user.id,
-    //     Title,
-    //     Description,
-    //     Thumbnail,
-    //     Video: uploadData.url
-    //   }
-
-    // const res = await dispatch(addVideoThunk(newVideo))
-    // if (res.id) {
-
-    //   setErrors([])
-    //   setTitle('')
-    //   setDescription('')
-    //   setThumbnail(null)
-    //   setVideo_Data(null)
-    // } else {
-    //   setErrors(res)
-    // }
-    // }
-
+    else if (uploadData.url) {
+      setVideoUrl(uploadData.url)
+      setTitle(video_data.name)
+      setErrors([])
+      setPhase1(false)
+      setPhase2(true)
+    }
     setImageLoading(false);
 
   }
+
+
 
   const submitThumbnail = async (e) => {
     e.preventDefault()
     const formData = new FormData();
     formData.append("image", thumbnail_data)
     setImageLoading(true);
-
     const upload = await fetch('/api/videos/upload-thumbnail', {
       method: "POST",
       body: formData
@@ -116,13 +113,36 @@ const CreateVideoModal = ({ user }) => {
     const uploadData = await upload.json()
     if (uploadData.errors) {
       setErrors([uploadData.errors])
+      setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU")
     } else if (uploadData.url) {
       setThumbnail(uploadData.url)
       setErrors([])
     }
     setImageLoading(false);
-    console.log(Thumbnail)
+    // console.log(Thumbnail)
   }
+
+
+
+  const confirmUpload = async () => {
+    const newVideo = {
+      user_id: user.id,
+      Title,
+      Description,
+      Thumbnail,
+      Video: videoUrl
+    }
+
+    const res = await dispatch(addVideoThunk(newVideo))
+    if (res.id) {
+      closeModal()
+    } else {
+      setErrors(res)
+    }
+  }
+
+
+
 
 
   return (<>
@@ -149,11 +169,11 @@ const CreateVideoModal = ({ user }) => {
                   <FileUploadIcon />
                 </button>
               </form>
-              <button onClick={() => {
+              {/* <button onClick={() => {
                 setPhase1(false)
                 setPhase2(true)
                 setTitle(video_data.name)
-              }}>Next Phase</button>
+              }}>Next Phase</button> */}
               {errors.map(error => (
                 <div className="UploadVideoCenterErrors" key={error}> {error}</div>
               ))}
@@ -174,7 +194,10 @@ const CreateVideoModal = ({ user }) => {
 
         {phase2 && <div className="CreateVideoModalPhase2">
           <div className="CreateVideoHeaders">
-            <div className="CreateVideoHeaderTitle"> {Title} </div>
+            {Title &&
+              <div className="CreateVideoHeaderTitle"> {Title} </div>}
+            {!Title &&
+              <div className="CreateVideoHeaderTitle" style={{ color: "red" }}> "{titleError}" </div>}
             <button className="CreateVideoCloseX" onClick={closeModal}>X</button>
           </div>
           <div className="AddVideoDetailsSection">
@@ -225,6 +248,8 @@ const CreateVideoModal = ({ user }) => {
                   checked={selected === "Preview"}
                   onChange={(e) => {
                     setSelected(e.target.value)
+                    setPhase2(false)
+                    setPhase4(true)
                   }}
                 />
                 <label id="DetailNodeCircle" htmlFor="PreviewNode"></label>
@@ -257,11 +282,35 @@ const CreateVideoModal = ({ user }) => {
                   </div>
                 </form>
               </div>
-              <div className="AddVideoDetailsMainRight"> </div>
+              <div className="AddVideoDetailsMainRight">
+                <div className="VideoDetailsPreview">
+                  <video controls style={{ width: "310px", height: "170px" }}
+                    disablePictureInPicture controlsList="nodownload"
+                  >
+                    <source src={videoUrl} type="video/mp4" />
+                  </video>
+                  <div>
+                    <div id="VideoPreviewLinkName">Video Link:</div>
+                    <div id="VideoPreviewLink">
+                      <a href={videoUrl} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(4, 93, 248, 0.987)" }}>{videoUrl}</a>
+                    </div>
+                    <div id="VideoPreviewFileNameLabel">FileName:</div>
+                    <div id="VideoPreviewFileName">
+                      <div>{video_data.name}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="AddVideoDetailsBottom">
-
+            <button className="CreateVideoNextButton"
+              onClick={() => {
+                setSelected("Thumbnail")
+                setPhase2(false)
+                setPhase3(true)
+              }}
+            >Next</button>
           </div>
         </div>
         }
@@ -275,7 +324,10 @@ const CreateVideoModal = ({ user }) => {
 
         {phase3 && <div>
           <div className="CreateVideoHeaders">
-            <div className="CreateVideoHeaderTitle"> {Title} </div>
+            {Title &&
+              <div className="CreateVideoHeaderTitle"> {Title} </div>}
+            {!Title &&
+              <div className="CreateVideoHeaderTitle" style={{ color: "red" }}> "{titleError}" </div>}
             <button className="CreateVideoCloseX" onClick={closeModal}>X</button>
           </div>
           <div className="AddVideoThumbnailSection">
@@ -293,6 +345,8 @@ const CreateVideoModal = ({ user }) => {
                     setSelected(e.target.value)
                     setPhase3(false)
                     setPhase2(true)
+                    setThumbnail_data(null)
+                    setErrors([])
                   }}
                 />
                 <label id="DetailNodeCircle" htmlFor="detailsNode"></label>
@@ -326,6 +380,11 @@ const CreateVideoModal = ({ user }) => {
                   checked={selected === "Preview"}
                   onChange={(e) => {
                     setSelected(e.target.value)
+                    setPhase3(false)
+                    setPhase4(true)
+                    setThumbnail_data(null)
+                    setErrors([])
+
                   }}
                 />
                 <label id="DetailNodeCircle" htmlFor="PreviewNode"></label>
@@ -353,14 +412,165 @@ const CreateVideoModal = ({ user }) => {
               </div>
               <div className="AddVideoThumbnailMainRight">
                 <h3 style={{ marginTop: "150px" }}>Thumbnail Preview</h3>
-                <img className="ThumbnailPreview" src={Thumbnail || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU"} alt="alt" />
+                <img className="ThumbnailPreview" src={Thumbnail} alt="alt" />
               </div>
             </div>
+          </div>
+          <div className="AddVideoDetailsBottom">
+            <button className="CreateVideoBackButton"
+              onClick={() => {
+                setSelected("Details")
+                setPhase3(false)
+                setPhase2(true)
+                setThumbnail_data(null)
+                setErrors([])
+
+              }}
+            >Back</button>
+            <button className="CreateVideoNextButton"
+              onClick={() => {
+                setSelected("Preview")
+                setPhase3(false)
+                setPhase4(true)
+                setThumbnail_data(null)
+                setErrors([])
+
+              }}
+            >Next</button>
           </div>
 
         </div>
 
         }
+
+
+
+
+
+
+
+
+        {phase4 && <div>
+          <div className="CreateVideoHeaders">
+            {Title &&
+              <div className="CreateVideoHeaderTitle"> {Title} </div>}
+            {!Title &&
+              <div className="CreateVideoHeaderTitle" style={{ color: "red" }}> "{titleError}" </div>}
+            <button className="CreateVideoCloseX" onClick={closeModal}>X</button>
+          </div>
+          <div className="VideoPreviewSection">
+            <div className="VideoPreviewHeader">
+              <div className="DetailsHeaderNodes">
+                <div id="DetailNodeTitle"> Details</div>
+                <input
+                  className="Nodes"
+                  id="detailsNode"
+                  type="radio"
+                  name="phases"
+                  value="Details"
+                  checked={selected === "Details"}
+                  onChange={(e) => {
+                    setSelected(e.target.value)
+                    setPhase4(false)
+                    setPhase2(true)
+                  }}
+                />
+                <label id="DetailNodeCircle" htmlFor="detailsNode"></label>
+
+              </div>
+              <div className="DetailsNodeLine"></div>
+              <div className="DetailsHeaderNodes">
+                <div id="DetailNodeTitle"> Thumbnail</div>
+                <input
+                  className="Nodes"
+                  id="ThumbnailNode"
+                  type="radio"
+                  name="phases"
+                  value="Thumbnail"
+                  checked={selected === "Thumbnail"}
+                  onChange={(e) => {
+                    setSelected(e.target.value)
+                    setPhase4(false)
+                    setPhase3(true)
+                  }}
+                />
+                <label id="DetailNodeCircle" htmlFor="ThumbnailNode"></label>
+              </div>
+              <div className="DetailsNodeLine"></div>
+              <div className="DetailsHeaderNodes">
+                <div id="DetailNodeTitle"> Preview</div>
+                <input
+                  className="Nodes"
+                  id="PreviewNode"
+                  type="radio"
+                  name="phases"
+                  value="Preview"
+                  checked={selected === "Preview"}
+                  onChange={(e) => {
+                    setSelected(e.target.value)
+                  }}
+                />
+                <label id="DetailNodeCircle" htmlFor="PreviewNode"></label>
+              </div>
+            </div>
+            <div className="VideoPreviewMain">
+              <div className="VideoPreviewMainHeader">
+                <div>Video Preview</div>
+                <div> This is how your video page will appear on our website. Confirm to upload or go back and make changes.</div>
+              </div>
+              <div className="VideoPreviewMainMiddle">
+                <div className="VideoPreviewContainer">
+                  <div className="VideoPreviewDemoLeft">
+                    <video className="VideoPreviewDemoVideo"
+                    >
+                      <source src={videoUrl} type="video/mp4" />
+                    </video>
+                    <div className="VideoPreviewDemoDetails">
+                      <div className="VideoPreviewDemoTitle">{Title}</div>
+                      <div className="VideoPreviewDemoDescription">{Description}</div>
+                      <div className="VideoPreviewDemoComments">
+                        <div className="VideoPreviewDemoSingleComment">Sample Comment</div>
+                        <div className="VideoPreviewDemoSingleComment">Sample Comment</div>
+                        <div className="VideoPreviewDemoSingleComment">Sample Comment</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="VideoPreviewDemoRight">
+                    {videoExamples.map(num => {
+                      return (<div className="VideoPreviewSamples" key={num}>
+                        Recommended Video
+                      </div>)
+                    })}
+                  </div>
+                </div>
+              </div>
+              <div className="VideoPreviewMainErrors">
+                <div className="VideoPreviewErrors" > {titleError}</div>
+              </div>
+            </div>
+          </div>
+          <div className="AddVideoDetailsBottom">
+            <button className="CreateVideoBackButton"
+              onClick={() => {
+                setSelected("Thumbnail")
+                setPhase4(false)
+                setPhase3(true)
+              }}
+            >Back</button>
+            {Title &&
+              <button className="CreateVideoConfirmButton"
+                onClick={confirmUpload}
+              >Confirm Upload</button>}
+            {!Title &&
+              <button className="CreateVideoConfirmButton" style={{ backgroundColor: "rgba(56, 124, 241, 0.987)", cursor: "default" }}
+                disabled
+                onClick={() => {
+                }}
+              >Confirm Upload</button>}
+          </div>
+        </div>}
+
+
       </div>
     }
   </>)

@@ -28,7 +28,7 @@ const NavBar = () => {
         </div>
 
         <div className="NavListItem" >
-          <CreateVideoModal />
+          <CreateVideoModal user={sessionUser} />
         </div>
 
         <div className="NavListItem">

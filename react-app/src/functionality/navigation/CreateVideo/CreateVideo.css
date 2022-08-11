@@ -115,6 +115,10 @@
 
 
 
+
+
+
+
 /* -vv- Phase 2 -vv-*/
 
 .AddVideoDetailsSection {
@@ -137,7 +141,51 @@
   justify-content: center;
 }
 
+.AddVideoDetailsBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* align-items: flex-end; */
+  border-top: 1px solid rgb(120, 120, 120, .5);
+}
 
+.CreateVideoNextButton {
+  background-color: rgba(4, 93, 248, 0.987);
+  color: aliceblue;
+  border: 0;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 700;
+  height: 45px;
+  width: 75px;
+  margin-right: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.CreateVideoNextButton:active {
+  background-color: rgba(56, 124, 241, 0.987);
+}
+
+
+.CreateVideoBackButton {
+  background-color: transparent;
+  color: #606060;
+  border: 0;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 700;
+  height: 45px;
+  width: 75px;
+  margin-right: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.CreateVideoBackButton:active {
+  background-color: #979797;
+  color: #313131;
+}
 
 .DetailsHeaderNodes {
   /* border: rgb(255, 0, 60) 1px solid; */
@@ -200,7 +248,57 @@
   position: relative;
   height: 100%;
   width: 40%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 
+}
+
+
+.VideoDetailsPreview {
+  /* border: 1px solid orange; */
+  background-color: #f0f0f0;
+  margin-top: 70px;
+  height: 300px;
+  width: 310px;
+}
+
+#VideoPreviewLinkName {
+  color: #606060;
+  margin-top: 5px;
+  /* border: 1px solid orange; */
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+#VideoPreviewLink {
+  /* border: 1px solid red; */
+  /* overflow-wrap: break-word; */
+  height: 30px;
+  width: 90%;
+  margin-left: 5px;
+  word-break: break-all;
+  font-size: 14px;
+  overflow-y: hidden;
+
+}
+
+#VideoPreviewFileNameLabel {
+  color: #606060;
+  margin-top: 15px;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+#VideoPreviewFileName {
+  /* border: 1px solid red; */
+  margin-top: 5px;
+  height: 30px;
+  width: 90%;
+  margin-left: 5px;
+  word-break: break-all;
+  font-size: 14px;
+  overflow-y: hidden;
 }
 
 .AddVideoDetailsMainForm {
@@ -324,7 +422,11 @@
 
 
 
-/* Phase 3 */
+
+
+
+
+/* -vv- Phase 3 -vv-*/
 
 .AddVideoThumbnailSection {
   /* border: 1px solid aqua; */
@@ -363,7 +465,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: flex-start;
 }
 
 .AddVideoThumbnailMainLeft {
@@ -382,20 +484,212 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .ThumbnailWarning {
   width: 350px;
   text-align: center;
   font-weight: 700;
+  margin-top: 70px;
   margin-bottom: 50px;
   overflow-wrap: break-word;
 }
 
 .ThumbnailPreview {
-  object-fit: fill;
+  /* object-fit: fill; */
   height: 190px;
   width: 315px;
   border: rgb(10, 10, 10, .5) 1px solid;
+}
+
+
+
+
+
+
+/* -vv- Phase 4 -vv-*/
+.VideoPreviewSection {
+  /* border: 1px solid aqua; */
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  position: relative;
+}
+
+.VideoPreviewHeader {
+  /* border: 1px solid orange; */
+  height: 15%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.VideoPreviewMain {
+  border: slateblue solid 1px;
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  width: 100%;
+  position: relative;
+}
+
+.VideoPreviewMainHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 1px solid black; */
+  height: 15%;
+  width: 100%;
+}
+
+.VideoPreviewMainMiddle {
+  /* border: 1px solid orange; */
+  height: 75%;
+  display: flex;
+  justify-content: center;
+}
+
+.VideoPreviewMainErrors {
+  /* border: 1px solid red; */
+  padding-top: 8px;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: red;
+}
+
+
+.VideoPreviewContainer {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  height: 100%;
+}
+
+
+.VideoPreviewDemoLeft {
+  /* border: red 1px solid; */
+  height: 100%;
+  width: 75%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.VideoPreviewDemoRight {
+  background-color: #e7e7e762;
+  /* border: blue 1px solid; */
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.VideoPreviewSamples {
+  border: 1px solid black;
+  background-color: #d3cfcf67;
+  height: 55px;
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: larger;
+
+}
+
+.VideoPreviewDemoVideo {
+  width: 430px;
+  border: 2px solid black;
+
+}
+
+.VideoPreviewDemoDetails {
+  width: 100%;
+  height: 225px;
+  /* border: 1px solid salmon; */
+}
+
+.VideoPreviewDemoTitle {
+  border: 1px solid rgb(120, 120, 120, .8);
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+  font-size: 19px;
+  height: 25px;
+  width: 100%;
+  word-break: break-all;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+}
+
+
+.VideoPreviewDemoDescription {
+  border: 1px solid rgb(120, 120, 120, .8);
+  font-size: 10px;
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
+  /* border-bottom: 1px solid rgb(120, 120, 120, .5); */
+  height: 65px;
+  width: 100%;
+  word-break: break-all;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+}
+
+.VideoPreviewDemoComments {
+  background-color: #e7e7e762;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: larger;
+  height: 110px;
+  width: 100%;
+
+}
+
+.VideoPreviewDemoSingleComment {
+  border: 1px solid rgba(0, 0, 0, 0.288);
+  background-color: #d3cfcf67;
+  width: 99%;
+  height: 25%;
+  text-align: center;
+  font-size: 15px;
+}
+
+.CreateVideoConfirmButton {
+  background-color: rgba(4, 93, 248, 0.987);
+  color: aliceblue;
+  border: 0;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 500;
+  height: 45px;
+  width: 95px;
+  margin-right: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.CreateVideoConfirmButton:active {
+  background-color: rgba(56, 124, 241, 0.987);
 }
