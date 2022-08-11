@@ -318,3 +318,84 @@
   left: 470px;
   /* z-index: -1; */
 }
+
+
+
+
+
+
+/* Phase 3 */
+
+.AddVideoThumbnailSection {
+  /* border: 1px solid aqua; */
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  position: relative;
+}
+
+
+.AddVideoThumbnailMain {
+  /* border: slateblue solid 1px; */
+  display: flex;
+  height: 85%;
+  width: 100%;
+  position: relative;
+}
+
+
+.AddVideoThumbnailHeader {
+  /* border: 1px solid orange; */
+  height: 15%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddVideoThumbnailMainRight {
+  height: 100%;
+  /* border: 1px solid green; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.AddVideoThumbnailMainLeft {
+  height: 100%;
+  /* border: 1px solid goldenrod; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.UploadThumbnailCenterForm {
+  /* border: 1px solid red; */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ThumbnailWarning {
+  width: 350px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
+  overflow-wrap: break-word;
+}
+
+.ThumbnailPreview {
+  object-fit: fill;
+  height: 190px;
+  width: 315px;
+  border: rgb(10, 10, 10, .5) 1px solid;
+}

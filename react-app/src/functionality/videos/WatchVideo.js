@@ -16,7 +16,7 @@ const WatchVideo = () => {
   useEffect(() => {
     dispatch(getVideosThunk())
     dispatch(getCommentsThunk(videoId))
-  }, [dispatch])
+  }, [dispatch, videoId])
 
 
   if (!video) return null

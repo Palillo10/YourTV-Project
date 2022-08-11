@@ -10,7 +10,7 @@ const CreateVideoForm = ({ user }) => {
   const [video_data, setVideo_Data] = useState(null)
   const [errors, setErrors] = useState([])
   const [imageLoading, setImageLoading] = useState(false);
-  const [status, setStatus] = useState(null)
+  // const [status, setStatus] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()

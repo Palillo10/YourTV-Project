@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { useEffect, useState } from "react"
+// import { useDispatch } from "react-redux";
+// import { useHistory } from "react-router-dom";
 
 
 const VideoTest = () => {
-  const dispatch = useDispatch()
-  const [image, setImage] = useState('')
+  // const dispatch = useDispatch()
+  // const [image, setImage] = useState('')
 
 
 
   return (<>
-    <img src="https://icones.pro/wp-content/uploads/2021/02/youtube-logo-icone-orange.png" />
+    <img src="https://icones.pro/wp-content/uploads/2021/02/youtube-logo-icone-orange.png" alt="alt" />
 
   </>
   )

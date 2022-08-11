@@ -10,9 +10,7 @@ import VideosList from './functionality/videos/VideosList';
 import User from './functionality/User';
 import { authenticate } from './store/session';
 import WatchVideo from './functionality/videos/WatchVideo';
-import CommentsList from './functionality/comments.js/CommentsList';
 import VideoTest from './functionality/VIdeoTest';
-import SideBar from './functionality/navigation/Siderbar';
 import HomePage from './functionality/HomePage.js/HomePage';
 
 
@@ -51,9 +49,6 @@ function App() {
         </Route>
         <Route path='/videos' exact={true}>
           <VideosList />
-        </Route >
-        <Route path='/comments' exact={true}>
-          <CommentsList />
         </Route >
         <Route path={`/watch-:videoId`} exact={true}>
           <WatchVideo />

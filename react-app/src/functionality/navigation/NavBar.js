@@ -16,11 +16,11 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="NavListItem">
+        {/* <div className="NavListItem">
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </div>
+        </div> */}
         <div className="NavListItem">
           <NavLink to='/videos' exact={true} activeClassName='active'>
             Videos
