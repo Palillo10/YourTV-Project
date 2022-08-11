@@ -105,7 +105,7 @@ const CreateVideoModal = ({ user }) => {
   const submitThumbnail = async (e) => {
     e.preventDefault()
     const formData = new FormData();
-    formData.append("image", Thumbnail)
+    formData.append("image", thumbnail_data)
     setImageLoading(true);
 
     const upload = await fetch('/api/videos/upload-thumbnail', {
@@ -118,8 +118,10 @@ const CreateVideoModal = ({ user }) => {
       setErrors([uploadData.errors])
     } else if (uploadData.url) {
       setThumbnail(uploadData.url)
+      setErrors([])
     }
     setImageLoading(false);
+    console.log(Thumbnail)
   }
 
 

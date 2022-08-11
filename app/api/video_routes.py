@@ -109,12 +109,14 @@ def upload_video():
 
 @video_routes.route('/upload-thumbnail', methods=["POST"])
 def upload_thumbnail():
+
+  print(request.files)
   if "image" not in request.files:
-    return {"errors": "image : image required"}, 400
+    return {"errors": "image : image requiredZ"}, 400
 
   image = request.files["image"]
 
-  if not allowed_file(video.filename):
+  if not allowed_file(image.filename):
       return {"errors": "image : file type not permitted"}, 400
 
   image.filename = get_unique_filename(image.filename)
