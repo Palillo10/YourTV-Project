@@ -43,9 +43,10 @@ const CreateVideoForm = ({ user }) => {
         setDescription('')
         setThumbnail(null)
         setVideo_Data(null)
-        setImageLoading(true);
+        setImageLoading(false);
       } else {
         setErrors(res)
+        setImageLoading(false);
       }
     }
 

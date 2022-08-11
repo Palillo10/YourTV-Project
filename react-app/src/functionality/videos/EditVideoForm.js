@@ -1,36 +1,64 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react"
 import { deleteVideoThunk, updateVideoThunk } from "../../store/videos"
+import { useHistory } from "react-router-dom"
 
 const EditVideoForm = ({ user, video }) => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const [title, setTitle] = useState(video.title)
   const [description, setDescription] = useState(video.description)
-  const [thumbnail, setThumbnail] = useState(video.thumbnail)
+  const [thumbnail, setThumbnail] = useState(null)
   const [openEditForm, setOpenEditForm] = useState(false)
   const [errors, setErrors] = useState([])
+  const [imageLoading, setImageLoading] = useState(false);
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const videoInfo = {
-      id: video.id,
-      user_id: video.user_id,
-      title,
-      description,
-      thumbnail,
-      video_data: video.video_data
+
+    const formData = new FormData();
+    formData.append("image", thumbnail)
+    setImageLoading(true);
+    let uploadData = { "url": video.thumbnail }
+
+    if (thumbnail) {
+      const upload = await fetch('/api/videos/upload-thumbnail', {
+        method: "POST",
+        body: formData
+      })
+
+      uploadData = await upload.json()
     }
 
-    const res = await dispatch(updateVideoThunk(videoInfo))
-    if (res.id) {
-      setErrors([])
-    } else {
-      setErrors(res)
+    if (uploadData.errors) {
+      setErrors([uploadData.errors])
+    } else if (uploadData.url) {
+
+      const videoInfo = {
+        id: video.id,
+        user_id: video.user_id,
+        Title: title,
+        Description: description,
+        Thumbnail: uploadData.url,
+        Video: video.video_data
+      }
+
+      const res = await dispatch(updateVideoThunk(videoInfo))
+      if (res.id) {
+        setErrors([])
+        setThumbnail(null)
+      } else {
+        setErrors(res)
+      }
     }
+    setImageLoading(false);
 
   }
-
   const deleteVideo = () => {
     dispatch(deleteVideoThunk(video.id))
+    history.push('/')
   }
 
   return (<div>
@@ -63,12 +91,13 @@ const EditVideoForm = ({ user, video }) => {
             <label htmlFor="thumbnail">Thumbnail</label>
             <input
               id="thumbnail"
-              type="text"
-              value={thumbnail}
-              onChange={e => setThumbnail(e.target.value)}
+              type="file"
+              accept="image/*"
+              onChange={e => setThumbnail(e.target.files[0])}
             />
           </div>
           <button>Confirm Edit</button>
+          {(imageLoading) && <p>Loading...</p>}
         </form>
         <button onClick={deleteVideo}>Delete</button>
       </fieldset>}

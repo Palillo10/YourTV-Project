@@ -56,9 +56,9 @@ def update_video(videoId):
   if form.validate_on_submit():
     video = Video.query.get(videoId)
 
-    video.title = form.title.data
-    video.description = form.description.data
-    video.thumbnail = form.thumbnail.data
+    video.title = form.Title.data
+    video.description = form.Description.data
+    video.thumbnail = form.Thumbnail.data
     video.video_data = video.video_data
     video.updated_at = datetime.now()
 
