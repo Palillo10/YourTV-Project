@@ -1,55 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 
 const VideoTest = () => {
-  const history = useHistory(); // so that we can redirect after the image upload is successful
-  const [image, setImage] = useState(null);
-  const [imageLoading, setImageLoading] = useState(false);
+  const dispatch = useDispatch()
+  const [image, setImage] = useState('')
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("image", image);
-    console.log(formData)
-    // aws uploads can be a bit slow—displaying
-    // some sort of loading message is a good idea
-    setImageLoading(true);
 
-    const res = await fetch(`/api/videos/upload-video`, {
-      method: "POST",
-      body: formData,
-    });
-    if (res.ok) {
-      await res.json();
-      setImageLoading(false);
-      // history.push("/videos");
-    }
-    else {
-      setImageLoading(false);
-      // a real app would probably use more advanced
-      // error handling
-      const data = await res.json()
-      console.log(data);
-    }
-  }
+  return (<>
+    <img src="https://icones.pro/wp-content/uploads/2021/02/youtube-logo-icone-orange.png" />
 
-  const updateImage = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="file"
-        accept="video/*"
-        onChange={updateImage}
-      />
-      <button type="submit">Submit</button>
-      {(imageLoading) && <p>Loading...</p>}
-    </form>
+  </>
   )
 }
 

@@ -3,6 +3,7 @@ from flask_login import login_required
 from datetime import datetime
 from app.models import Video, db
 from app.forms import VideoForm
+from ffmpy import FFmpeg
 # import cv2
 # import numpy as np
 from app.api.aws import (
@@ -78,7 +79,7 @@ def delete_video(videoId):
 
 
 @video_routes.route('/upload-video', methods=["POST"])
-def thumbnail_test():
+def upload_video():
   if "video" not in request.files:
     return {"errors": "video : video required"}, 400
 
@@ -101,3 +102,21 @@ def thumbnail_test():
   url = upload["url"]
   # flask_login allows us to get the current user from the request
   return {"url": url}
+
+
+
+# @video_routes.route('/thumbnail-test')
+# def thumbnail_test():
+
+#   ff = FFmpeg(inputs={'https://your-tv-app-bucket.s3.us-east-2.amazonaws.com/111938b2df3b4435b6964bf276d81b7a.mp4': None}, outputs={"??outddddpustfs.png": ['-ss', '00:00:4', '-vframes', '1']})
+
+
+#   output = ff.cmd
+#   image = output.split('??')[1]
+#   res =
+#   # Print result
+#   # ffmpeg -i input.mp4 -ss 00:00:10 -vframes 1 output.png
+
+#   ff.run()
+#   # print("OUTPUT", output)
+#   return {"thumbnail": image}

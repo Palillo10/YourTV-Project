@@ -26,7 +26,7 @@ const HomePage = () => {
 
               <NavLink to={`/watch-${video.id}`}>
                 <div className="UpperVideoCard">
-                  <img className="VideoCardThumbnail" src={video.thumbnail ? video.thumbnail : "https://st4.depositphotos.com/17828278/24401/v/600/depositphotos_244011872-stock-illustration-image-vector-symbol-missing-available.jpg"} />
+                  <img className="VideoCardThumbnail" src={video.thumbnail ? video.thumbnail : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU"} />
                 </div>
                 <div className='LowerVideoCard'>
                   <div className='VideoDetailLeft'>

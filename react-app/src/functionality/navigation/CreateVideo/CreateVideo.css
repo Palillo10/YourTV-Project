@@ -1,3 +1,7 @@
+.UploadVideoIcon {
+  cursor: pointer;
+}
+
 /* -vv- Phase 1 -vv-*/
 
 .CreateVideoModal {
@@ -124,7 +128,7 @@
 }
 
 .AddVideoDetailsHeader {
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   height: 15%;
   width: 100%;
   position: relative;
@@ -133,45 +137,15 @@
   justify-content: center;
 }
 
-.AddVideoDetailsMain {
-  border: slateblue solid 1px;
+
+
+.DetailsHeaderNodes {
+  /* border: rgb(255, 0, 60) 1px solid; */
+  height: 65px;
+  width: 25px;
   display: flex;
-  height: 85%;
-  width: 100%;
-  position: relative;
-}
-
-.AddVideoDetailsMainLeft {
-  border: aqua 1px solid;
-  position: relative;
-  height: 100%;
-  width: 60%;
-}
-
-.AddVideoDetailsMainRight {
-  border: rgb(255, 0, 60) 1px solid;
-  position: relative;
-  height: 100%;
-  width: 40%;
-
-}
-
-.DetailsHeaderDetailNode {
-  border: rgb(255, 0, 60) 1px solid;
-  height: 75px;
-  width: 75px;
-}
-
-.DetailsHeaderThumbnailNode {
-  border: rgb(255, 0, 60) 1px solid;
-  height: 75px;
-  width: 75px;
-}
-
-.DetailsHeaderPreviewNode {
-  border: rgb(255, 0, 60) 1px solid;
-  height: 75px;
-  width: 75px;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -179,6 +153,168 @@
   border: 1px solid rgb(169, 169, 169, .5);
   background-color: rgb(169, 169, 169, .5);
   border-radius: 500px;
-  width: 200px;
+  width: 250px;
   height: 1px;
+}
+
+
+#DetailNodeCircle {
+  /* background-color: rgba(4, 93, 248, 0.987); */
+  border: rgba(4, 93, 248, 0.987) 4px solid;
+  padding: 2px;
+  width: 15px;
+  height: 15px;
+  z-index: 1;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+
+.DetailsHeaderNodes :checked~label {
+  background-color: rgba(4, 93, 248, 0.987);
+}
+
+
+.Nodes {
+  display: none;
+}
+
+
+.AddVideoDetailsMain {
+  /* border: slateblue solid 1px; */
+  display: flex;
+  height: 85%;
+  width: 100%;
+  position: relative;
+}
+
+.AddVideoDetailsMainLeft {
+  /* border: aqua 1px solid; */
+  position: relative;
+  min-height: 100%;
+  width: 60%;
+}
+
+.AddVideoDetailsMainRight {
+  /* border: rgb(255, 0, 60) 1px solid; */
+  position: relative;
+  height: 100%;
+  width: 40%;
+
+}
+
+.AddVideoDetailsMainForm {
+  /* border: 1px solid palevioletred; */
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+
+}
+
+
+.AddVideoDetailsFormHeader {
+  margin: 0;
+  margin-left: 20px;
+}
+
+.AddVideoTitleDiv {
+  position: relative;
+  margin-top: 45px;
+  border: 1px solid rgb(100, 100, 100, .5);
+  min-height: 100px;
+  width: 95%;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: visible;
+
+}
+
+.AddVideoTitleInput {
+  /* position: relative; */
+  /* border: 1px solid rgb(100, 100, 100, .5); */
+  width: 95%;
+  min-height: 73%;
+  border: 0;
+  z-index: -1;
+  outline: 0;
+  /* margin-left: px; */
+  font-family: "Roboto", "Arial", "sans-serif";
+  color: black;
+  /* overflow: visible; */
+}
+
+.TitleLengthCheck {
+  position: absolute;
+  /* bottom: 5px; */
+  left: 480px;
+  /* z-index: -1; */
+}
+
+.AddVideoTitleInput:out-of-range {
+  background-color: aqua;
+}
+
+
+.AddVideoTitleHeader {
+  /* color: aqua; */
+  margin-top: 2px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: rgb(100, 100, 100);
+}
+
+.AddVideoTitleDiv:focus-within {
+  border-color: rgba(4, 93, 248, 0.987);
+}
+
+.AddVideoTitleHeader:focus-within {
+  color: rgba(4, 93, 248, 0.987);
+}
+
+
+
+.AddVideoDescriptionDiv {
+  position: relative;
+  margin-top: 35px;
+  border: 1px solid rgb(100, 100, 100, .5);
+  height: 170px;
+  width: 95%;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.AddVideoDescriptionInput {
+  width: 95%;
+  height: 73%;
+  border: 0;
+  z-index: -1;
+  outline: 0;
+  /* margin-left: 10px; */
+  font-family: "Roboto", "Arial", "sans-serif";
+  color: black;
+}
+
+.AddVideoDescriptionHeader {
+  /* color: aqua; */
+  margin-top: 2px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: rgb(100, 100, 100);
+}
+
+.AddVideoDescriptionDiv:focus-within {
+  border-color: rgba(4, 93, 248, 0.987);
+}
+
+.AddVideoDescriptionHeader:focus-within {
+  color: rgba(4, 93, 248, 0.987);
+}
+
+.DescriptionLengthCheck {
+  position: absolute;
+  bottom: -18px;
+  left: 470px;
+  /* z-index: -1; */
 }
