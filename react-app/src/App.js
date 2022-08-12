@@ -6,7 +6,7 @@ import SignUpForm from './functionality/auth/SignUpForm';
 import NavBar from './functionality/navigation/NavBar';
 // import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './functionality/UsersList';
-import VideosList from './functionality/videos/VideosList';
+import SearchResults from './functionality/videos/SearchResults';
 import User from './functionality/User';
 import { authenticate } from './store/session';
 import WatchVideo from './functionality/videos/WatchVideo';
@@ -47,8 +47,8 @@ function App() {
         <Route path='/users/:userId' exact={true} >
           <User />
         </Route>
-        <Route path='/videos' exact={true}>
-          <VideosList />
+        <Route path="/results¿search_query=':searchTerm'" exact={true}>
+          <SearchResults />
         </Route >
         <Route path={`/watch-:videoId`} exact={true}>
           <WatchVideo />

@@ -5,7 +5,8 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [channel_name, setChannel_Name] = useState('');
+  const [full_name, setFull_Name] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,15 +16,17 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(channel_name, email, password, full_name));
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Password and Repeat Password must match"])
     }
   };
 
   const updateUsername = (e) => {
-    setUsername(e.target.value);
+    setChannel_Name(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -50,12 +53,21 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>Full Name</label>
         <input
           type='text'
-          name='username'
+          name='full_name'
+          onChange={e => setFull_Name(e.target.value)}
+          value={full_name}
+        ></input>
+      </div>
+      <div>
+        <label>Channel Name</label>
+        <input
+          type='text'
+          name='channel_name'
           onChange={updateUsername}
-          value={username}
+          value={channel_name}
         ></input>
       </div>
       <div>

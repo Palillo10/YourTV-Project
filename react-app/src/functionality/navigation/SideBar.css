@@ -14,7 +14,8 @@
   /* border: 1px solid black; */
   position: relative;
   top: 13px;
-  font-size: larger;
+  /* font-size: 1px; */
+  /* color: aqua; */
 }
 
 .SideBarMenuIcon {

@@ -6,6 +6,7 @@ import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import { useSelector } from 'react-redux';
 import CreateVideoModal from './CreateVideo/CreateVideoModal';
+import SearchBar from './SearchBar/SearchBar';
 
 
 const NavBar = () => {
@@ -16,19 +17,23 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <div className="NavListItem">
+        <div className="NavListItem">
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </div> */}
-        <div className="NavListItem">
+        </div>
+        {/* <div className="NavListItem">
           <NavLink to='/videos' exact={true} activeClassName='active'>
             Videos
           </NavLink>
-        </div>
+        </div> */}
 
         <div className="NavListItem" >
           <CreateVideoModal user={sessionUser} />
+        </div>
+
+        <div className="NavListItem">
+          Welcome {sessionUser.channel_name}
         </div>
 
         <div className="NavListItem">
@@ -66,7 +71,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className='NavBarCenter'>
-        <input className="tempsearchbar" type='text' />
+        <SearchBar />
       </div>
       <div className='NavBarRight'>
         {sessionLinks}

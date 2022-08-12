@@ -515,8 +515,8 @@ const CreateVideoModal = ({ user }) => {
             </div>
             <div className="VideoPreviewMain">
               <div className="VideoPreviewMainHeader">
-                <div>Video Preview</div>
-                <div> This is how your video page will appear on our website. Confirm to upload or go back and make changes.</div>
+                <div style={{ fontSize: "19px", fontWeight: "600", marginBottom: "7px" }}>Video Preview</div>
+                <div style={{ fontSize: "17px" }}> This is how your video page will appear on our website. Confirm to upload or go back and make changes.</div>
               </div>
               <div className="VideoPreviewMainMiddle">
                 <div className="VideoPreviewContainer">

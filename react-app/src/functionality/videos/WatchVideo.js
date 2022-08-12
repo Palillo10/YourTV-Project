@@ -25,12 +25,14 @@ const WatchVideo = () => {
   return (<div>
     <video></video>
     <h1> {video.title}</h1>
+    <h4>Posted By: {video.owner.channel_name}</h4>
     <p> {video.description}</p>
     <video poster={video.thumbnail} controls style={{ width: "325px", height: "250px" }}>
       <source src={video.video_data} type="video/mp4" />
     </video>
     <p> {video.created_at}</p>
-    <EditVideoForm video={video} />
+    {sessionUser && sessionUser.channel_name === video.owner.channel_name &&
+      <EditVideoForm video={video} />}
     <div>
       <h1>Comments</h1>
       {sessionUser && <>
@@ -40,7 +42,8 @@ const WatchVideo = () => {
         <div key={comment.id}>
           <div> {comment.commenter.channel_name} </div>
           <div> {comment.body} </div>
-          <EditCommentForm user={comment.commenter} comment={comment} />
+          {sessionUser && sessionUser.channel_name === comment.commenter.channel_name &&
+            <EditCommentForm user={comment.commenter} comment={comment} />}
 
         </div>
       ))}

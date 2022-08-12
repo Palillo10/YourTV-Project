@@ -15,13 +15,13 @@ def seed_videos():
   )
 
   bobbie = Video(
-    user_id=3, title="HOW DO I USE THIS WEBSITE!!!!!", thumbnail="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
+    user_id=3, title="HOW DO I USE THIS WEBSITE!!!!!", thumbnail="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU",
     video_data="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
     updated_at=(datetime.now())
     )
 
   demo_video2 = Video(
-    user_id=1, title="My Second Demo Video",  description="This is second my demo video", thumbnail="https://thumbs.dreamstime.com/b/demo-rubber-stamp-grunge-design-dust-scratches-effects-can-be-easily-removed-clean-crisp-look-color-easily-changed-82616276.jpg",
+    user_id=1, title="My Second Demo Video",  description="This is second my demo video", thumbnail="https://thumbs.dreamstime.com/b/demo-sign-demo-icon-vector-icon-demo-sign-demo-icon-170323550.jpg",
     video_data="https://thumbs.dreamstime.com/b/demo-rubber-stamp-grunge-design-dust-scratches-effects-can-be-easily-removed-clean-crisp-look-color-easily-changed-82616276.jpg",
     updated_at=(datetime.now())
     )

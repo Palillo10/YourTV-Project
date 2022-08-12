@@ -1,0 +1,30 @@
+.SearchBarInput {
+  height: 33px;
+  width: 80%;
+  /* align-self: center; */
+  border: 1px solid #d3d3d3;
+  font-size: 16px;
+  padding: 1px;
+  outline: 0;
+  font-family: Roboto, Noto, sans-serif;
+}
+
+.SearchBarForm {
+  /* border: #ff9000 1px solid; */
+  height: 100%;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.SearchBarButton {
+  border: 1px solid #d3d3d3;
+  border-left: 0;
+  padding: 5px 15px 5px 15px;
+  /* background-color: #f9f9f9; */
+  cursor: pointer;
+  justify-content: center;
+  /* align-items: flex-start; */
+  display: flex;
+}

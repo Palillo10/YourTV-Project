@@ -1,16 +1,11 @@
 .NavBarContainer {
   /* border: 1px solid black; */
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   /* height: 30px; */
   position: relative;
 }
 
-.tempsearchbar {
-  height: 50%;
-  width: 75%;
-  align-self: center;
-}
 
 .NavBarLeft {
   /* border: red 1px solid; */
@@ -25,15 +20,16 @@
   /* border: blue 1px solid; */
   display: flex;
   /* align-content: center; */
-  justify-content: center;
+  /* align-self: flex-end; */
+  justify-content: flex-start;
   width: 35%;
 }
 
 .NavBarRight {
-  /* border: yellow 1px solid; */
+  /* border: orange 1px solid; */
   display: flex;
   justify-content: space-evenly;
-  width: 30%;
+  width: 35%;
 }
 
 .NavListItem {
