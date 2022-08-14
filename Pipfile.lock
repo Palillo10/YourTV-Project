@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c8c84c3f8c571dce961bc91bb8f943423abfe6a7f6afab47e5fe3e8b7a7c5e6e"
+            "sha256": "403ba60fdd753080fb7bd61835eb9f48262d6d698e9d8210ef1bb30e454c4c16"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -47,6 +47,22 @@
             ],
             "index": "pypi",
             "version": "==7.1.2"
+        },
+        "dnspython": {
+            "hashes": [
+                "sha256:0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e",
+                "sha256:a851e51367fb93e9e1361732c1d60dab63eff98712e503ea7d92e6eccb109b4f"
+            ],
+            "markers": "python_version >= '3.6' and python_version < '4.0'",
+            "version": "==2.2.1"
+        },
+        "email-validator": {
+            "hashes": [
+                "sha256:6757aea012d40516357c0ac2b1a4c31219ab2f899d26831334c5d069e8b6c3d8",
+                "sha256:c8589e691cf73eb99eed8d10ce0e9cbb05a0886ba920c8bcb7c82873f4c5789c"
+            ],
+            "index": "pypi",
+            "version": "==1.2.1"
         },
         "flask": {
             "hashes": [
@@ -158,6 +174,14 @@
             ],
             "index": "pypi",
             "version": "==20.1.0"
+        },
+        "idna": {
+            "hashes": [
+                "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff",
+                "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==3.3"
         },
         "itsdangerous": {
             "hashes": [
@@ -344,11 +368,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:7c7854ee1429a240090297628dc9f75b35318d193537968e2dc14010ee2f5bca",
-                "sha256:dc2662692f47d99cb8ae15a784529adeed535bcd7c277fee0beccf961522baf6"
+                "sha256:194b74f2c2d1800268fe2d857d99981e7c04d010de3099f04ee45ebec535e560",
+                "sha256:3bcaf6e27ad3b0f643ba0a48c5ab9eca930c3eb51df0e068f4826ab880c394ea"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==63.4.1"
+            "version": "==64.0.3"
         },
         "six": {
             "hashes": [
