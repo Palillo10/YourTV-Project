@@ -35,6 +35,7 @@ const LoginForm = () => {
     let password = 'password'
     dispatch(login(email, password));
   }
+  //
 
   return (<div className='Signup-LoginBody' style={{ justifyContent: "center" }}>
     <h4>Feel Free to Login to get the best experience.</h4>
