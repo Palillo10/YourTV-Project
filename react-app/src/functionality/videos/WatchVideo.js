@@ -6,12 +6,14 @@ import EditVideoForm from "./EditVideoForm"
 import CreateCommentForm from "../comments.js/CreateCommentForm"
 import { getCommentsThunk } from "../../store/comments"
 import EditCommentForm from "../comments.js/EditCommentForm"
+import './WatchVideo.css'
 
 const WatchVideo = () => {
   const { videoId } = useParams()
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const [openCreateForm, setOpenCreateForm] = useState(false)
+  const [openShowMore, setOpenShowMore] = useState(false)
   const video = useSelector(state => state.videos[videoId])
   const comments = Object.values(useSelector(state => state.comments))
   useEffect(() => {
@@ -19,34 +21,47 @@ const WatchVideo = () => {
     dispatch(getCommentsThunk(videoId))
   }, [dispatch, videoId])
 
+  const openShowMoreFunction = () => {
+    setOpenShowMore(true)
+    const element = document.getElementById("WatchVideoDescription")
+    element.style.height = "fit-content"
+  }
+
+  const closeShowMoreFunction = () => {
+    setOpenShowMore(false)
+    const element = document.getElementById("WatchVideoDescription")
+    element.style.height = "25px"
+  }
+
 
   if (!video) return null
 
-  return (<div>
-    <video></video>
-    <h1> {video.title}</h1>
-    <h4>Posted By: {video.owner.channel_name}</h4>
-    <p> {video.description}</p>
-    <video poster={video.thumbnail} controls style={{ width: "325px", height: "250px" }}>
-      <source src={video.video_data} type="video/mp4" />
-    </video>
-    <p> {video.created_at}</p>
-    {sessionUser && sessionUser.channel_name === video.owner.channel_name &&
-      <EditVideoForm video={video} />}
-    <div>
-      <h1>Comments</h1>
-      {sessionUser && <>
-        <button onClick={() => setOpenCreateForm(!openCreateForm)}>Create Comment</button>
-        {openCreateForm && <CreateCommentForm user={sessionUser} video={video} />} </>}
-      {comments.map(comment => (
-        <div key={comment.id}>
-          <div> {comment.commenter.channel_name} </div>
-          <div> {comment.body} </div>
-          {sessionUser && sessionUser.channel_name === comment.commenter.channel_name &&
-            <EditCommentForm user={comment.commenter} comment={comment} />}
-
+  return (<div className="WatchVideoPageBody">
+    <div className="WatchVideoPageLeft">
+      <div className="WatchVideoLeftVideoDetails">
+        <video className="WatchVideoVideoElement" controls autoPlay>
+          <source src={video.video_data} type="video/mp4" />
+        </video>
+        <div className="WatchVideoTitle"> {video.title}</div>
+        <div className="WatchVideoExtraDetails">
+          <div className="WatchVideoCreatorDetails">
+            <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} />
+            <div className="WatchVideoCreatorName"> {video.owner.channel_name}</div>
+          </div>
+          <div className="WatchVideoDescription" id="WatchVideoDescription"> {video.description}</div>
+          <div className="ShowMoreButtonDiv">
+            {!openShowMore &&
+              <button className="ShowMoreButton" onClick={openShowMoreFunction}>SHOW MORE</button>}
+            {openShowMore &&
+              <button className="ShowMoreButton" onClick={closeShowMoreFunction}>SHOW LESS</button>}
+          </div>
         </div>
-      ))}
+        <EditVideoForm user={sessionUser} video={video} />
+      </div>
+      <div className="WatchVideoLeftComments"></div>
+    </div>
+    <div className="WatchVideoPageRight">
+      <div className="WatchVideoPageRecommendedVideos"></div>
     </div>
   </div>)
 }

@@ -89,12 +89,10 @@ const EditVideoForm = ({ user, video }) => {
           </div>
           <div>
             <label htmlFor="description">Description</label>
-            <input
-              id="description"
-              type="text"
+            <textarea className="AddVideoDescriptionInput" id="description" rows="9" maxLength={5000}
               value={description}
-              onChange={e => setDescription(e.target.value)}
-            />
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
           </div>
           <div>
             <label htmlFor="thumbnail">Thumbnail</label>

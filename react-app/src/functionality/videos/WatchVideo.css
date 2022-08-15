@@ -1,0 +1,114 @@
+.WatchVideoPageBody {
+  border: 1px solid yellow;
+  min-height: 1000px;
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+}
+
+.WatchVideoPageLeft {
+  border: 1px solid red;
+  min-width: 740px;
+  width: 73%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.WatchVideoPageRight {
+  border: 1px solid blue;
+  width: 25%;
+}
+
+.WatchVideoLeftVideoDetails {
+  border: 1px solid black;
+  width: 95%;
+  min-height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.WatchVideoVideoElement {
+  width: 95%;
+  min-width: 740px;
+  /* min-height: 420px; */
+  height: 700px;
+}
+
+.WatchVideoTitle {
+  /* border: 1px solid orange; */
+  width: 95%;
+  min-height: 46px;
+  max-height: 46px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+}
+
+.WatchVideoExtraDetails {
+  /* border: 1px solid pink; */
+  width: 95%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.WatchVideoCreatorDetails {
+  /* border: 1px purple solid; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.WatchVideoCreatorAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.WatchVideoCreatorName {
+  margin-left: 15px;
+  font-size: 18px;
+}
+
+.WatchVideoDescription {
+  /* border: 1px blue solid; */
+  /* justify-self: flex-end; */
+  width: 95%;
+  padding: 10px;
+  font-size: 14px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+  height: 25px;
+  /* min-height: fit-content; */
+}
+
+
+.ShowMoreButtonDiv {
+  /* border: 1px solid red; */
+  margin-top: 15px;
+  height: 25px;
+  width: 95%;
+}
+
+.ShowMoreButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  color: #606060;
+  font-size: 12px;
+
+}
