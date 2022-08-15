@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useParams, Link, useHistory } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getVideosThunk } from "../../store/videos"
 import EditVideoForm from "./EditVideoForm"
@@ -12,13 +12,26 @@ const WatchVideo = () => {
   const { videoId } = useParams()
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
-  const [openCreateForm, setOpenCreateForm] = useState(false)
+  const history = useHistory()
   const [openShowMore, setOpenShowMore] = useState(false)
-  const video = useSelector(state => state.videos[videoId])
+  let video = useSelector(state => state.videos[videoId])
+  const allVideos = useSelector(state => state.videos)
+  const videos = Object.values(allVideos)
   const comments = Object.values(useSelector(state => state.comments))
+
+  console.log("HISTORY", history)
   useEffect(() => {
-    dispatch(getVideosThunk())
-    dispatch(getCommentsThunk(videoId))
+    const funct = async () => {
+      const videos = await dispatch(getVideosThunk())
+
+      const ids = videos.map(video => video.id)
+      if (!(ids.includes(Number(videoId)))) {
+        history.replace("/")
+      }
+      dispatch(getCommentsThunk(videoId))
+    }
+
+    funct()
   }, [dispatch, videoId])
 
   const openShowMoreFunction = () => {
@@ -34,34 +47,68 @@ const WatchVideo = () => {
   }
 
 
+
   if (!video) return null
 
   return (<div className="WatchVideoPageBody">
     <div className="WatchVideoPageLeft">
       <div className="WatchVideoLeftVideoDetails">
-        <video className="WatchVideoVideoElement" controls autoPlay>
-          <source src={video.video_data} type="video/mp4" />
-        </video>
+        <video src={video.video_data} className="WatchVideoVideoElement" controls autoPlay />
         <div className="WatchVideoTitle"> {video.title}</div>
         <div className="WatchVideoExtraDetails">
-          <div className="WatchVideoCreatorDetails">
-            <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} />
-            <div className="WatchVideoCreatorName"> {video.owner.channel_name}</div>
+          <div className="WatchVideoCreatorDetailsButton">
+            <div className="WatchVideoCreatorDetails">
+              <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} />
+              <div className="WatchVideoCreatorName"> {video.owner.channel_name}</div>
+            </div>
+            {sessionUser && sessionUser.id === video.owner.id && <EditVideoForm user={sessionUser} video={video} />}
           </div>
           <div className="WatchVideoDescription" id="WatchVideoDescription"> {video.description}</div>
           <div className="ShowMoreButtonDiv">
-            {!openShowMore &&
+            {!openShowMore && video.description && video.description.length > 200 &&
               <button className="ShowMoreButton" onClick={openShowMoreFunction}>SHOW MORE</button>}
             {openShowMore &&
               <button className="ShowMoreButton" onClick={closeShowMoreFunction}>SHOW LESS</button>}
           </div>
         </div>
-        <EditVideoForm user={sessionUser} video={video} />
       </div>
-      <div className="WatchVideoLeftComments"></div>
+      <div className="WatchVideoLeftComments">
+
+        {sessionUser && <CreateCommentForm user={sessionUser} video={video} />}
+        {comments.map(comment => (
+          <div key={comment.id} className="WatchVideoComment">
+            <img className="WatchVideoCommenterAvatar" src={comment.commenter.avatar} />
+            <div className="WatchVideoCommentDetails">
+              <div className="WatchVideoCommenterName"> {comment.commenter.channel_name}
+                {sessionUser && sessionUser.id === comment.commenter.id && <EditCommentForm comment={comment} user={sessionUser} />}
+              </div>
+              <div className="WatchVideoCommentBody"> {comment.body}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
     <div className="WatchVideoPageRight">
-      <div className="WatchVideoPageRecommendedVideos"></div>
+      <h1>Recommended Videos</h1>
+      <div className="WatchVideoPageRecommendedVideos">
+        {videos?.map(vid => {
+          if (vid.id === video.id) return null
+          return (<Link key={vid.id} to={`/watch-${vid.id}`}>
+            <div className="WatchVideoRecommendedVideo" key={vid.id}>
+              <img className="WatchVideoRecommendedVideoImg" src={vid.thumbnail} />
+              <div className="WatchVideoRecommendedVideoDetails">
+                <div className="WatchVideoRecommendedVideoTitle"> {vid.title}</div>
+                <div className="WatchVideoRecommendedVideoCreator">
+                  <img src={vid.owner.avatar} style={{ width: "30px", height: "30px", borderRadius: "50px" }} alt={vid.title} />
+                  <div>{vid.owner.channel_name}</div>
+                </div>
+                <div className="WatchVideoRecommendedVideoDescription"> {vid.description}</div>
+              </div>
+            </div>
+          </Link>)
+        })}
+      </div>
     </div>
   </div>)
 }

@@ -17,11 +17,11 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className="NavListItem">
+        {/* <div className="NavListItem">
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </div>
+        </div> */}
         {/* <div className="NavListItem">
           <NavLink to='/videos' exact={true} activeClassName='active'>
             Videos
@@ -60,7 +60,7 @@ const NavBar = () => {
   return (
     <div className='NavBarContainer'>
       <div className='NavBarLeft'>
-        <SideBar />
+        {/* <SideBar /> */}
         <div className="LogoContainer">
           <NavLink to='/' className="LogoLink" exact={true} activeClassName='active'>
             <div className='LogoPlayButton'>

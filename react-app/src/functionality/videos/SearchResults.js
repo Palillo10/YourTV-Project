@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getVideosThunk } from '../../store/videos'
 import './SearchResults.css'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const SearchResults = () => {
   const dispatch = useDispatch()
@@ -31,7 +33,41 @@ const SearchResults = () => {
 
 
   return (<div className='HomePageBody'>
-    <div className='SideBarLinksContainer'></div>
+    <div className='SideBarLinksContainer'>
+      <a href="https://github.com/Palillo10/YourTV-Project" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <GitHubIcon />
+      </a>
+      <a href="https://www.linkedin.com/in/isaac-diaz-459a52241/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <LinkedInIcon />
+      </a>
+      <a href="https://www.python.org/doc/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-python fa-2xl"></i>
+      </a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-js fa-2xl"></i>
+      </a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/css" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-css3-alt fa-2xl"></i>
+      </a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-html5 fa-2xl"></i>
+      </a>
+      <a href="https://redux.js.org/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-reacteurope fa-2xl"></i>
+      </a>
+      <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-react fa-2xl"></i>
+      </a>
+      <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-brands fa-font-awesome fa-2xl"></i>
+      </a>
+      <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-solid fa-database fa-2xl"></i>
+      </a>
+      <a href="https://flask.palletsprojects.com/en/2.1.x/" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
+        <i className="fa-solid fa-flask fa-2xl"></i>
+      </a>
+    </div>
     <div className='SearchResultsVideosContainer'>
       <div className='SearchResultsVideos'>
         <h2 style={{ marginBottom: "5px", marginLeft: "15px", borderBottom: "1px solid rgb(160, 160, 160, .4)" }} className='SearchResultsHeaders'>Results</h2>

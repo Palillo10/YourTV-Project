@@ -10,8 +10,12 @@
 
 .SideBarLinksContainer {
   /* border: 1px solid black; */
-  background-color: bisque;
+  background-color: transparent;
   min-width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 

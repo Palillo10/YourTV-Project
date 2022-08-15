@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './functionality/auth/LoginForm';
 import SignUpForm from './functionality/auth/SignUpForm';
@@ -58,6 +58,9 @@ function App() {
         </Route >
         <Route path='/' exact={true} >
           <HomePage />
+        </Route>
+        <Route path="">
+          <Redirect to="/" />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -6,6 +6,7 @@ const CreateCommentForm = ({ user, video }) => {
   const dispatch = useDispatch()
   const [body, setBody] = useState('')
   const [errors, setErrors] = useState([])
+  const [selected, setSelected] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault()
     const newComment = {
@@ -18,31 +19,57 @@ const CreateCommentForm = ({ user, video }) => {
     if (res.id) {
       setErrors([])
       setBody('')
+      setSelected(false)
     } else {
       setErrors(res)
     }
 
   }
 
-  return (<div>
-    <fieldset>
-      {errors.map(error => (
-        <div key={error}> {error}</div>
-      ))}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="body">Body</label>
-          <input
+  return (<div style={{ borderBottom: "2px solid rgb(160, 160, 160, .3)", marginBottom: "15px", textAlign: "center" }}>
+    <div className="CreateCommentDiv">
+      {/* {errors.map(error => (
+      <div key={error}> {error}</div>
+    ))} */}
+      <form className="CreateCommentForm" onSubmit={handleSubmit}>
+        <img className="WatchVideoCommenterAvatar" src={user.avatar} />
+        <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <textarea
+            className="CreateCommentInput"
             id="body"
             type="text"
             value={body}
-            onChange={e => setBody(e.target.value)}
+            placeholder="Add a comment ...."
+            onChange={e => {
+              setBody(e.target.value)
+              setSelected(true)
+            }}
+            rows="2"
+            maxLength={500}
+          // onFocus={setSelected(true)}
           />
+          {selected
+            && `${body.length}/ 500`
+          }
         </div>
-        <button>Confirm</button>
+        {selected
+          && <button className="CreateCommentConfirmButton">Save</button>
+        }
       </form>
-    </fieldset>
-  </div>)
+      {selected &&
+        < button className="CreateCommentCancelButton" onClick={e => {
+          setErrors([])
+          setBody('')
+          setSelected(false)
+        }}>Cancel</button>
+      }
+    </div>
+    {
+      errors.map(error => (
+        <div className="errors" key={error}> {error}</div>
+      ))
+    }
+  </div >)
 }
 
 

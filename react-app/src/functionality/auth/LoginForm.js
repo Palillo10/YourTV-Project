@@ -30,35 +30,53 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
-  return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+  const demoLogin = () => {
+    let email = 'demo@aa.io'
+    let password = 'password'
+    dispatch(login(email, password));
+  }
+
+  return (<div className='Signup-LoginBody' style={{ justifyContent: "center" }}>
+    <h4>Feel Free to Login to get the best experience.</h4>
+
+    <div className='SignUp-LoginFormDiv'>
+      <form className="SignUp-LoginForm" onSubmit={onLogin}>
+        <div className='ActualForm'>
+
+          <div >
+            {errors.map((error, ind) => (
+              <div className="errors" key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <label htmlFor='email'>Email</label>
+            <input
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          <div>
+            <label htmlFor='password'>Password</label>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+          </div>
+          <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Sign Up</button>
+          <button onClick={demoLogin} className='CreateCommentConfirmButton' style={{ marginTop: "25px" }}>Demo Login</button>
+        </div>
+        <div className='nothing'></div>
+      </form>
+    </div>
+    <div className='h4Div'>
+    </div>
+  </div>
   );
 };
 

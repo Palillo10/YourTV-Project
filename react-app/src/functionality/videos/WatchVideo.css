@@ -1,5 +1,5 @@
 .WatchVideoPageBody {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   min-height: 1000px;
   width: 99vw;
   display: flex;
@@ -9,7 +9,7 @@
 }
 
 .WatchVideoPageLeft {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   min-width: 740px;
   width: 73%;
   display: flex;
@@ -18,12 +18,13 @@
 }
 
 .WatchVideoPageRight {
-  border: 1px solid blue;
-  width: 25%;
+  /* border: 1px solid blue; */
+  width: 28%;
 }
 
 .WatchVideoLeftVideoDetails {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
   width: 95%;
   min-height: 900px;
   display: flex;
@@ -41,12 +42,14 @@
 
 .WatchVideoTitle {
   /* border: 1px solid orange; */
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
   width: 95%;
   min-height: 46px;
   max-height: 46px;
   font-size: 18px;
   font-weight: 600;
   margin-top: 10px;
+  margin-bottom: 10px;
   overflow-wrap: break-word;
   overflow-y: hidden;
   hyphens: auto;
@@ -67,8 +70,48 @@
   /* border: 1px purple solid; */
   display: flex;
   align-items: center;
+  width: 50%;
+}
+
+.WatchVideoCreatorDetailsButton {
+  /* border: 1px red solid; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
   width: 100%;
 }
+
+
+
+.WatchVideoEditButtonDiv {
+  /* border: 1px solid green; */
+  height: 100%;
+  width: 50%;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.WatchVideoEditButton {
+  background-color: rgba(4, 93, 248, 0.987);
+  color: aliceblue;
+  border: 0;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: 700;
+  height: 35px;
+  width: 55px;
+  cursor: pointer;
+  /* margin-right: 50px; */
+}
+
+.WatchVideoEditButton:active {
+  background-color: rgba(56, 124, 241, 0.987);
+}
+
+
+
 
 .WatchVideoCreatorAvatar {
   width: 50px;
@@ -111,4 +154,263 @@
   color: #606060;
   font-size: 12px;
 
+}
+
+
+
+
+.WatchVideoLeftComments {
+  /* border: 1px solid black; */
+  min-height: 150px;
+  width: 95%;
+}
+
+
+.WatchVideoComment {
+  /* border: 1px solid purple; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 60px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
+
+}
+
+.WatchVideoCommenterAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+
+.WatchVideoCommentDetails {
+  /* border: 1px solid red; */
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: clip;
+
+}
+
+
+.WatchVideoCommenterName {
+  /* border: 1px solid blue; */
+  /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+  /* overflow: visible; */
+  margin-left: 5px;
+  font-size: 16px;
+  /* width: 100%; */
+}
+
+.WatchVideoCommentBody {
+  /* border: 1px solid green; */
+  /* width: 50%; */
+  padding: 5px 10px 10px;
+  /* margin-left: 6px; */
+  font-size: 13px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+  /* height: 25px; */
+}
+
+
+.EditCommentButton {
+  cursor: pointer;
+}
+
+.EditCommentFormModal {
+  border-bottom: 2px solid black;
+  background-color: #f9f9f9;
+  display: inline;
+  /* position: absolute; */
+  /* z-index: 500; */
+}
+
+
+
+
+
+
+
+
+.CreateCommentForm {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.CreateCommentInput {
+  width: 95%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
+}
+
+
+.CreateCommentDiv {
+  /* border: 1px solid blue; */
+  display: flex;
+  /* border-bottom: 2px solid rgb(160, 160, 160, .3); */
+  align-items: center;
+  /* margin-bottom: 15px; */
+  justify-content: center;
+
+}
+
+
+.CreateCommentConfirmButton {
+  background-color: rgba(4, 93, 248, 0.987);
+  color: aliceblue;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 700;
+  height: 30px;
+  width: 55px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+.CreateCommentConfirmButton:active {
+  background-color: rgba(56, 124, 241, 0.987);
+}
+
+
+
+.CreateCommentCancelButton {
+  background-color: transparent;
+  color: #606060;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  height: 30px;
+  width: 55px;
+  margin-right: 10px;
+  /* margin-top: 10px; */
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.CreateCommentCancelButton:active {
+  background-color: #979797;
+  color: #313131;
+}
+
+.errors {
+  color: red;
+}
+
+
+.EditCommentFormModal {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.EditCommentInput {
+  width: 600px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
+}
+
+
+.DeleteButton {
+  background-color: rgba(207, 9, 9, 0.987);
+  color: aliceblue;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 700;
+  height: 30px;
+  width: 55px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+
+.DeleteButton:active {
+  background-color: rgb(231, 6, 6);
+}
+
+
+.WatchVideoRecommendedVideo {
+  border: 1px solid black;
+  margin: 25px 10px;
+  height: 125x;
+  min-width: 300px;
+  display: flex;
+}
+
+.WatchVideoRecommendedVideo:hover {
+  background-color: #e6e6e68c;
+}
+
+
+.WatchVideoRecommendedVideoImg {
+  border: 1px solid black;
+  height: 125px;
+  min-width: 205px;
+}
+
+.WatchVideoRecommendedVideoDetails {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+}
+
+
+.WatchVideoRecommendedVideoTitle {
+  /* border: 1px solid pink; */
+  max-height: 25px;
+  height: 25%;
+  font-size: 12px;
+  padding: 3px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
+}
+
+
+.WatchVideoRecommendedVideoCreator {
+  /* border: 1px solid purple; */
+  padding: 3px;
+  height: 20%;
+  display: flex;
+  font-size: 12px;
+}
+
+
+.WatchVideoRecommendedVideoDescription {
+  /* border: 1px solid blue; */
+  font-size: 11px;
+  max-height: 35px;
+  height: 30%;
+  padding: 3px;
+  overflow-wrap: break-word;
+  overflow-y: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: "...";
+  hyphenate-character: "...";
 }

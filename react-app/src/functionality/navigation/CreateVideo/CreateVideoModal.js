@@ -4,7 +4,7 @@ import { addVideoThunk } from "../../../store/videos"
 import UploadVideoIcon from '@material-ui/icons/VideoCallOutlined'
 import './CreateVideo.css'
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-
+import Button from '@material-ui/core/Button'
 
 const CreateVideoModal = ({ user }) => {
   const dispatch = useDispatch()
@@ -201,12 +201,15 @@ const CreateVideoModal = ({ user }) => {
             <div className="UploadVideoCenter">
               {imageLoading && <h1 className="UploadVideoLoading">LOADING</h1>}
               <form className="UploadVideoCenterForm" onSubmit={submitVideo}>
-                {/* <label htmlFor="video_data">Video</label> */}
+                <label htmlFor="UploadVideoInput">
+                  <Button className="InputButton" type="button" component="span" variant="contained" fontSize="small" color="primary" style={{ margin: "10px" }}> Choose File</Button>
+                </label>
                 <input
-                  className="UploadVideoInput"
+                  id="UploadVideoInput"
                   type='file'
                   accept='video/*'
                   onChange={setVideo_DataUrl}
+                  style={{ display: "none" }}
                 />
                 <button className="UploadVideoFormIcon">
                   <FileUploadIcon />
@@ -438,15 +441,19 @@ const CreateVideoModal = ({ user }) => {
               <div className="AddVideoThumbnailMainLeft">
                 {imageLoading && <h1 className="UploadThumbnailLoading">LOADING</h1>}
                 <form className="UploadThumbnailCenterForm" onSubmit={submitThumbnail}>
-                  {/* <label htmlFor="video_data">Video</label> */}
                   <div className="ThumbnailWarning">Upload a thumbnail for your video. If no thumbnail is uploaded, your video will be given a default thumbnail.</div>
+                  <label htmlFor="UploadThumbnailIcon">
+                    <Button className="InputButton" type="button" component="span" variant="contained" fontSize="small" color="primary" style={{ margin: "10px" }}> Choose File</Button>
+                  </label>
                   <input
+                    id="UploadThumbnailIcon"
                     className="UploadThumbnailInput"
                     type='file'
                     accept='image/*'
                     onChange={e => setThumbnail_data(e.target.files[0])}
+                    style={{ display: "none" }}
                   />
-                  <button className="UploadThumbnailFormIcon">
+                  <button className="CreateCommentConfirmButton">
                     <FileUploadIcon />
                   </button>
                   {errors.map(error => (

@@ -1,0 +1,51 @@
+.Signup-LoginBody {
+  /* border: 1px solid yellow; */
+  min-height: 900px;
+  width: 99vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f9f9f9;
+}
+
+.SignUp-LoginFormDiv {
+  border: 2px solid black;
+  width: 500px;
+  height: 250px;
+}
+
+.SignUp-LoginForm {
+  display: flex;
+}
+
+.nothing {
+  width: 30%;
+  /* border: 1px solid black; */
+  /*  */
+}
+
+.ActualForm {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-end;
+}
+
+.ActualForm>div {
+  margin: 5px 0;
+}
+
+.h2Div {
+  width: 900px;
+  text-align: center;
+  margin: 80px;
+}
+
+
+.h4Div {
+  width: 900px;
+  text-align: center;
+  margin: 40px;
+}
