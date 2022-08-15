@@ -69,7 +69,7 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
           </div>
-          <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Sign Up</button>
+          <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Login</button>
           <button onClick={demoLogin} className='CreateCommentConfirmButton' style={{ marginTop: "25px" }}>Demo Login</button>
         </div>
         <div className='nothing'></div>
