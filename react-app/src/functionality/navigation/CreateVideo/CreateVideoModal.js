@@ -23,8 +23,12 @@ const CreateVideoModal = ({ user }) => {
   const [phase4, setPhase4] = useState(false)
   const [imageLoading, setImageLoading] = useState(false);
   const [selected, setSelected] = useState("Details")
-  const videoExamples = [1, 2, 3, 4, 5, 6]
+  const [videoPreviewUrl, setVideoPreviewUrl] = useState(undefined)
+  const [videoPreviewUrlOn, setVideoPreviewUrlOn] = useState(false)
 
+
+
+  const videoExamples = [1, 2, 3, 4, 5, 6]
 
 
   useEffect(() => {
@@ -74,25 +78,33 @@ const CreateVideoModal = ({ user }) => {
 
   const submitVideo = async (e) => {
     e.preventDefault()
-    const formData = new FormData();
-    formData.append("video", video_data)
-    setImageLoading(true);
 
-    const upload = await fetch('/api/videos/upload-video', {
-      method: "POST",
-      body: formData
-    })
+    const check = await checkDuration();
 
-    const uploadData = await upload.json()
-    if (uploadData.errors) {
-      setErrors([uploadData.errors])
-    }
-    else if (uploadData.url) {
-      setVideoUrl(uploadData.url)
-      setTitle(video_data.name)
-      setErrors([])
-      setPhase1(false)
-      setPhase2(true)
+    if (check.Perfect) {
+
+      const formData = new FormData();
+      formData.append("video", video_data)
+      setImageLoading(true);
+
+      const upload = await fetch('/api/videos/upload-video', {
+        method: "POST",
+        body: formData
+      })
+
+      const uploadData = await upload.json()
+      if (uploadData.errors) {
+        setErrors([uploadData.errors])
+      }
+      else if (uploadData.url) {
+        setVideoUrl(uploadData.url)
+        setTitle(video_data.name)
+        setErrors([])
+        setPhase1(false)
+        setPhase2(true)
+      }
+    } else if (check.Error) {
+      setErrors([check.Error])
     }
     setImageLoading(false);
 
@@ -144,6 +156,37 @@ const CreateVideoModal = ({ user }) => {
 
 
 
+  const setVideo_DataUrl = (e) => {
+    setVideo_Data(e.target.files[0])
+    if (e.target.files.length > 0) {
+      setVideoPreviewUrl(URL.createObjectURL(e.target.files[0]))
+      setVideoPreviewUrlOn(true)
+      setErrors([])
+    }
+    else {
+      setVideoPreviewUrl(undefined)
+      setVideoPreviewUrlOn(false)
+      setErrors([])
+    }
+
+  }
+
+
+  let media = new Audio(videoPreviewUrl)
+
+
+  const checkDuration = async () => {
+    if (videoPreviewUrl === undefined) { return { "Perfect": "Perfect" } }
+    if (media.duration <= 360) {
+      return { "Perfect": "Perfect" }
+    } else if (media.duration > 36) {
+      return { "Error": "Error: Video must be under 6 minutes." }
+    } else {
+      return { "Error": "Error occured when uploading video. Please try again." }
+    }
+  }
+
+
 
   return (<>
     <UploadVideoIcon className="UploadVideoIcon" onClick={openModalIcon} />
@@ -163,7 +206,7 @@ const CreateVideoModal = ({ user }) => {
                   className="UploadVideoInput"
                   type='file'
                   accept='video/*'
-                  onChange={e => setVideo_Data(e.target.files[0])}
+                  onChange={setVideo_DataUrl}
                 />
                 <button className="UploadVideoFormIcon">
                   <FileUploadIcon />
@@ -178,6 +221,7 @@ const CreateVideoModal = ({ user }) => {
                 <div className="UploadVideoCenterErrors" key={error}> {error}</div>
               ))}
             </div>
+            {videoPreviewUrlOn && <video src={videoPreviewUrl} controls style={{ width: "310px", height: "170px" }} disablePictureInPicture controlsList="nodownload" onLoadedMetadata={checkDuration} />}
             <div className="UploadVideoBottom">
 
             </div>

@@ -12,6 +12,8 @@ const EditVideoForm = ({ user, video }) => {
   const [openEditForm, setOpenEditForm] = useState(false)
   const [errors, setErrors] = useState([])
   const [imageLoading, setImageLoading] = useState(false);
+  const [previewImage, setPreviewImage] = useState(false)
+  const [imageUrl, setImageUrl] = useState()
 
 
 
@@ -61,6 +63,13 @@ const EditVideoForm = ({ user, video }) => {
     history.push('/')
   }
 
+
+  const setThumbnailPreview = (e) => {
+    setThumbnail(e.target.files[0])
+    setImageUrl(URL.createObjectURL(e.target.files[0]))
+    setPreviewImage(true)
+  }
+
   return (<div>
     <button onClick={() => setOpenEditForm(!openEditForm)}>Edit</button>
     {openEditForm &&
@@ -93,13 +102,16 @@ const EditVideoForm = ({ user, video }) => {
               id="thumbnail"
               type="file"
               accept="image/*"
-              onChange={e => setThumbnail(e.target.files[0])}
+              onChange={setThumbnailPreview}
             />
           </div>
           <button>Confirm Edit</button>
           {(imageLoading) && <p>Loading...</p>}
         </form>
-        <button onClick={deleteVideo}>Delete</button>
+        {previewImage && <img src={imageUrl} style={{ width: "310px", height: "170px" }} />}
+        <div>
+          <button onClick={deleteVideo}>Delete</button>
+        </div>
       </fieldset>}
   </div>)
 }

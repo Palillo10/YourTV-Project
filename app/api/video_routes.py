@@ -81,7 +81,7 @@ def delete_video(videoId):
 @video_routes.route('/upload-video', methods=["POST"])
 def upload_video():
   if "video" not in request.files:
-    return {"errors": "video : Video required"}, 400
+    return {"errors": "video : Video file required"}, 400
 
   video = request.files["video"]
 
