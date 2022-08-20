@@ -50,6 +50,8 @@ const WatchVideo = () => {
 
   if (!video) return null
 
+  console.log(video.video_data)
+
   return (<div className="WatchVideoPageBody">
     <div className="WatchVideoPageLeft">
       <div className="WatchVideoLeftVideoDetails">
