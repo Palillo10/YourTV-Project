@@ -5,7 +5,7 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        full_name='Mr. Demo', channel_name='Demo-lition', bio='I am the demolition man', email='demo@aa.io',
+        full_name='Mr. Demo', channel_name='Demo-lition', bio='I am the demolition man', email='demo@aa.io', avatar="https://m.media-amazon.com/images/I/61VzKqpMkcL._AC_SY741_.jpg",
         password='password',  updated_at=(datetime.now())
         )
 
