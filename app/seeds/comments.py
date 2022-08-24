@@ -19,7 +19,7 @@ def seed_comments():
     user_id=1, video_id=2, body='You did an amazing thing here.', updated_at=(datetime.now())
   )
 
-  comment4 = Comment(
+  comment5 = Comment(
     user_id=3, video_id=4, body='Idk even understand what this is supposed to be', updated_at=(datetime.now())
   )
 

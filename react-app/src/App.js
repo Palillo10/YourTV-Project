@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './functionality/auth/LoginForm';
-import SignUpForm from './functionality/auth/SignUpForm';
-import NavBar from './functionality/navigation/NavBar';
-// import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './functionality/UsersList';
-import SearchResults from './functionality/videos/SearchResults';
-import User from './functionality/User';
+import LoginForm from './components/auth/LoginForm';
+import SignUpForm from './components/auth/SignUpForm';
+import NavBar from './components/navigation/NavBar';
+import UsersList from './components/UsersList';
+import SearchResults from './components/videos/SearchResults';
+import User from './components/User';
 import { authenticate } from './store/session';
-import WatchVideo from './functionality/videos/WatchVideo';
-import VideoTest from './functionality/VIdeoTest';
-import HomePage from './functionality/HomePage.js/HomePage';
+import WatchVideo from './components/videos/WatchVideo';
+import VideoTest from './components/VIdeoTest';
+import HomePage from './components/HomePage.js/HomePage';
 
 
 function App() {
