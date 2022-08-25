@@ -118,7 +118,7 @@ const EditVideoForm = ({ user, video }) => {
           </div>
           {(imageLoading) && <p>Loading...</p>}
         </form>
-        {previewImage && <img src={imageUrl} style={{ width: "310px", height: "170px" }} />}
+        {previewImage && <img src={imageUrl} style={{ width: "310px", height: "170px" }} alt="preview" />}
         <div>
           <button onClick={deleteVideo} className="DeleteButton">Delete</button>
         </div>

@@ -60,7 +60,7 @@ const WatchVideo = () => {
         <div className="WatchVideoExtraDetails">
           <div className="WatchVideoCreatorDetailsButton">
             <div className="WatchVideoCreatorDetails">
-              <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} />
+              <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} alt={video.owner.channel_name} />
               <div className="WatchVideoCreatorName"> {video.owner.channel_name}</div>
             </div>
             {sessionUser && sessionUser.id === video.owner.id && <EditVideoForm user={sessionUser} video={video} />}
@@ -79,7 +79,7 @@ const WatchVideo = () => {
         {sessionUser && <CreateCommentForm user={sessionUser} video={video} />}
         {comments.map(comment => (
           <div key={comment.id} className="WatchVideoComment">
-            <img className="WatchVideoCommenterAvatar" src={comment.commenter.avatar} />
+            <img className="WatchVideoCommenterAvatar" src={comment.commenter.avatar} alt={comment.commenter.channel_name} />
             <div className="WatchVideoCommentDetails">
               <div className="WatchVideoCommenterName"> {comment.commenter.channel_name}
                 {sessionUser && sessionUser.id === comment.commenter.id && <EditCommentForm comment={comment} user={sessionUser} />}
@@ -98,11 +98,11 @@ const WatchVideo = () => {
           if (vid.id === video.id) return null
           return (<Link key={vid.id} to={`/watch-${vid.id}`}>
             <div className="WatchVideoRecommendedVideo" key={vid.id}>
-              <img className="WatchVideoRecommendedVideoImg" src={vid.thumbnail} />
+              <img className="WatchVideoRecommendedVideoImg" src={vid.thumbnail} alt={vid.title} />
               <div className="WatchVideoRecommendedVideoDetails">
                 <div className="WatchVideoRecommendedVideoTitle"> {vid.title}</div>
                 <div className="WatchVideoRecommendedVideoCreator">
-                  <img src={vid.owner.avatar} style={{ width: "30px", height: "30px", borderRadius: "50px" }} alt={vid.title} />
+                  <img src={vid.owner.avatar} style={{ width: "30px", height: "30px", borderRadius: "50px" }} alt={vid.owner.channel_name} />
                   <div>{vid.owner.channel_name}</div>
                 </div>
                 <div className="WatchVideoRecommendedVideoDescription"> {vid.description}</div>

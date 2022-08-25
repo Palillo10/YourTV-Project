@@ -5,20 +5,22 @@ import { getVideosThunk } from '../../store/videos'
 import './SearchResults.css'
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { getUsersThunk } from '../../store/user'
 
 const SearchResults = () => {
   const dispatch = useDispatch()
   const videos = useSelector(state => state.videos)
+  const users = useSelector(state => state.users)
   const { searchTerm } = useParams()
-  console.log(searchTerm)
   // const sessionUser = useSelector(state => state.session.user)
   // const [openCreateForm, setOpenCreateForm] = useState(false)
 
   useEffect(() => {
     dispatch(getVideosThunk())
+    dispatch(getUsersThunk())
   }, [dispatch])
 
-  if (!videos) return null
+  if (!videos || !users) return null
   const checkSearch = searchTerm.toLowerCase()
 
   const filteredVideos = Object.values(videos).filter(video => {
@@ -28,6 +30,13 @@ const SearchResults = () => {
     return (checkName.includes(checkSearch)
       || checkDescription?.includes(checkSearch)
       || checkCreator.includes(checkSearch)
+    )
+  })
+
+  const filteredUsers = Object.values(users).filter(user => {
+    const checkName = user.channel_name.toLowerCase()
+    // const checkBio = user.bio?.toLowerCase()
+    return (checkName.includes(checkSearch)
     )
   })
 
@@ -71,13 +80,29 @@ const SearchResults = () => {
     <div className='SearchResultsVideosContainer'>
       <div className='SearchResultsVideos'>
         <h2 style={{ marginBottom: "5px", marginLeft: "15px", borderBottom: "1px solid rgb(160, 160, 160, .4)" }} className='SearchResultsHeaders'>Results</h2>
+        {filteredUsers.map(user => (<Link to={`/users/${user.channel_name}`}>
+          <div className='SearchResultsChannelCard'>
+            <div className='SearchResultsChannelAvatarBackground'>
+              <img className='SearchResultsChannelAvatar' src={user.avatar} alt={user.channel_name} />
+            </div>
+            <div className='SearchResultsChannelRight'>
+              <div className='SearchResultsChannelRightTop'> {user.channel_name}
+              </div>
+              <div className='SearchResultsChannelRightBottom'>
+                {user.bio}
+              </div>
+            </div>
+          </div>
+        </Link>
+        ))}
+        <div className='SearchResultBorder'></div>
         {filteredVideos.map(video => (<Link to={`/watch-${video.id}`}>
           <div className='SearchResultsVideoCard'>
-            <img className="SearchResultsVideoThumbnail" src={video.thumbnail} />
+            <img className="SearchResultsVideoThumbnail" src={video.thumbnail} alt={video.title} />
             <div className='SearchResultsVideoCardDetails'>
               <div className='SearchResultsVideoTitle'> {video.title}</div>
               <div className='SearchResultsVideoCreator'>
-                <img className="SearchResultsVideoCreatorAvatar" src={video.owner.avatar} />
+                <img className="SearchResultsVideoCreatorAvatar" src={video.owner.avatar} alt={video.owner.channel_name} />
                 <div className='SearchResultsVideoCreatorName'> {video.owner.channel_name} </div>
               </div>
               <div className='SearchResultsVideoDescription'>{video.description}</div>

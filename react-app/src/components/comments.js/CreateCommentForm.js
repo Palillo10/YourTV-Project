@@ -32,7 +32,7 @@ const CreateCommentForm = ({ user, video }) => {
       <div key={error}> {error}</div>
     ))} */}
       <form className="CreateCommentForm" onSubmit={handleSubmit}>
-        <img className="WatchVideoCommenterAvatar" src={user.avatar} />
+        <img className="WatchVideoCommenterAvatar" src={user.avatar} alt={user.channel_name} />
         <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <textarea
             className="CreateCommentInput"

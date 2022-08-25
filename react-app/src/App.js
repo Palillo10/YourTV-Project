@@ -43,7 +43,7 @@ function App() {
         <Route path='/users' exact={true} >
           <UsersList />
         </Route>
-        <Route path='/users/:userId' exact={true} >
+        <Route path='/users/:channelName' exact={true} >
           <User />
         </Route>
         <Route path="/results¿search_query=':searchTerm'" exact={true}>
