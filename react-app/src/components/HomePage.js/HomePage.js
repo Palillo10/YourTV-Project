@@ -55,7 +55,7 @@ const HomePage = () => {
       </a>
     </div>
     <div className='RecommendedVideosContainer'>
-      <h2 style={{ marginLeft: "75px", marginBottom: "0" }}>Recommended Videos</h2>
+      <h2 style={{ marginLeft: "225px", marginBottom: "20px" }}>Recommended Videos</h2>
       <div className="RecommendedVideos">
         {videos.map(video => (
           <div key={video.id} className='VideoCardOuter'>

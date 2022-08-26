@@ -5,8 +5,8 @@
 /* -vv- Phase 1 -vv-*/
 
 .CreateVideoModal {
-  position: absolute;
-  /* top: 5%; */
+  position: fixed;
+  top: 5%;
   left: 25%;
   /* right: 25%; */
   width: 960px;
@@ -14,7 +14,7 @@
   background-color: white;
   z-index: 5;
   border-radius: 10px;
-
+  display: none;
 }
 
 .CreateVideoHeaders {

@@ -1,9 +1,12 @@
 .NavBarContainer {
   /* border: 1px solid black; */
+  background-color: white;
   display: flex;
   justify-content: flex-start;
-  /* height: 30px; */
-  position: relative;
+  height: 55px;
+  position: fixed;
+  z-index: 3;
+  width: 99vw;
 }
 
 

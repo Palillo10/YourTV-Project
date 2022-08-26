@@ -7,6 +7,7 @@ import './NavBar.css'
 import { useSelector } from 'react-redux';
 import CreateVideoModal from './CreateVideo/CreateVideoModal';
 import SearchBar from './SearchBar/SearchBar';
+import UploadFormIcon from './CreateVideo/UploadFormIcon';
 
 
 const NavBar = () => {
@@ -29,7 +30,8 @@ const NavBar = () => {
         </div> */}
 
         <div className="NavListItem" >
-          <CreateVideoModal user={sessionUser} />
+          {/* <CreateVideoModal user={sessionUser} /> */}
+          <UploadFormIcon />
         </div>
 
         <div className="NavListItem">

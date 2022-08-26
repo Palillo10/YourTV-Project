@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/navigation/NavBar';
@@ -11,11 +11,13 @@ import { authenticate } from './store/session';
 import WatchVideo from './components/videos/WatchVideo';
 import VideoTest from './components/VIdeoTest';
 import HomePage from './components/HomePage.js/HomePage';
+import CreateVideoModal from './components/navigation/CreateVideo/CreateVideoModal';
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async () => {
@@ -28,10 +30,12 @@ function App() {
     return null;
   }
 
+
   return (
     <BrowserRouter>
-      <div id="ModalBackground">
+      <div id="ModalBackground" >
       </div>
+      <CreateVideoModal user={user} />
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>

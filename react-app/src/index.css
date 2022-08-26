@@ -28,7 +28,7 @@ a {
 #ModalBackground {
   display: none;
   position: fixed;
-  z-index: 5;
+  z-index: 4;
   top: 0;
   left: 0;
   height: 100%;
