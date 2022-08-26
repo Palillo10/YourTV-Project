@@ -3,11 +3,7 @@ from datetime import datetime
 
 
 def seed_videos():
-  demo_video = Video(
-    user_id=1, title="My Demo Video",  description="This is my demo video", thumbnail="https://thumbs.dreamstime.com/b/demo-rubber-stamp-grunge-design-dust-scratches-effects-can-be-easily-removed-clean-crisp-look-color-easily-changed-82616276.jpg",
-    video_data="https://thumbs.dreamstime.com/b/demo-rubber-stamp-grunge-design-dust-scratches-effects-can-be-easily-removed-clean-crisp-look-color-easily-changed-82616276.jpg",
-    updated_at=(datetime.now())
-    )
+
   beast_video = Video(
     user_id=4, title="I Cleaned The World's Dirtiest Beach #TeamSeas", description="""$1 Donated = 1 Pound Of Trash Out Of The Ocean -  https://teamseas.org/
 HELP US REMOVE 30,000,000 POUNDS OF TRASH FROM THE OCEAN BEFORE THE END OF THE YEAR!""",
@@ -190,7 +186,7 @@ So long and goodnight
 So long and goodnight
 
 #OfficialMusicVideo #MCR #Helena #WeAreWarnerRecords """, thumbnail="https://i.ytimg.com/vi/UCCyoocDxBA/maxresdefault.jpg",
-    video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1660947627/YourTv/media.io_35a41eef291a434d9fb0e6232872759c_n5mpjx.mp4",
+    video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1661105587/YourTv/media.io_0d46253e86084407a0ca8057c3378693_qlydph.mp4",
     updated_at=(datetime.now())
     )
 
@@ -503,7 +499,7 @@ http://vevo.ly/7MOdnq
 
   """,
   thumbnail='https://i.ytimg.com/vi/XXYlFuWEuKI/maxresdefault.jpg',
-  video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661311199/YourTv/the-weeknd-out-of-time-official-video_iztbgt.mp4',
+  video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661310647/YourTv/the-weeknd-save-your-tears-official-music-video_bwz1za.mp4',
   updated_at=(datetime.now())
  )
 
@@ -558,7 +554,6 @@ Music video by The Weeknd performing Out of Time (Audio). © 2022 The Weeknd XO,
 #   updated_at=(datetime.now())
 #  )
 
-  db.session.add(demo_video)
   db.session.add(beast_video)
   db.session.add(beast_video2)
   db.session.add(beast_video3)

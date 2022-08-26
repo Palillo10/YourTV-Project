@@ -1,0 +1,81 @@
+.UserPageBody {
+  /* border: 1px solid yellow; */
+  /* background-color: aqua; */
+  position: relative;
+  top: 50px;
+  /* left: 50px; */
+  min-height: 95vh;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: #f9f9f9; */
+  overflow: hidden;
+}
+
+
+.UserPageContainer {
+  /* border: 1px solid black; */
+  position: relative;
+  top: 10px;
+  left: 75px;
+  display: flex;
+  flex-direction: column;
+  /* height: 90%; */
+  width: 97%;
+  overflow: hidden;
+}
+
+
+.UserPageTop {
+  /* border: 1px solid red; */
+  background-color: #f9f9f9;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+
+.UserPageBottom {
+  /* border: 1px solid green; */
+  height: 85%;
+  background-color: #f1f1f1;
+}
+
+
+.UserPageVideosContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.UserPageDetails {
+  /* border: 1px solid green; */
+  position: relative;
+  /* width: 250px; */
+  left: 380px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.UserPageChannelName {
+  margin: 15px 25px;
+}
+
+.UserPageAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+
+.UserPageNavBar {
+  /* border: 1px solid red; */
+  height: 50px;
+  position: relative;
+  left: 400px;
+}

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useParams, Link, useHistory } from "react-router-dom"
+import { useParams, Link, useHistory, NavLink } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getVideosThunk } from "../../store/videos"
 import EditVideoForm from "./EditVideoForm"
@@ -60,7 +60,10 @@ const WatchVideo = () => {
         <div className="WatchVideoExtraDetails">
           <div className="WatchVideoCreatorDetailsButton">
             <div className="WatchVideoCreatorDetails">
-              <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} alt={video.owner.channel_name} />
+              <NavLink to={`/users/${video.owner.channel_name}`}>
+
+                <img className="WatchVideoCreatorAvatar" src={video.owner.avatar} alt={video.owner.channel_name} />
+              </NavLink>
               <div className="WatchVideoCreatorName"> {video.owner.channel_name}</div>
             </div>
             {sessionUser && sessionUser.id === video.owner.id && <EditVideoForm user={sessionUser} video={video} />}

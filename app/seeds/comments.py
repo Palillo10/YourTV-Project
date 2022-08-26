@@ -4,7 +4,7 @@ from datetime import datetime
 
 def seed_comments():
   comment1 = Comment(
-    user_id=2, video_id=1, body='YOOO, this is a great demo video. Nice Job. Thumbs up', updated_at=(datetime.now())
+    user_id=2, video_id=4, body='YOOO, this is a great demo video. Nice Job. Thumbs up', updated_at=(datetime.now())
   )
 
   comment2 = Comment(

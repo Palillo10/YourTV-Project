@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/navigation/NavBar';
 import UsersList from './components/UsersList';
 import SearchResults from './components/videos/SearchResults';
-import User from './components/User';
+import User from './components/Users/User';
 import { authenticate } from './store/session';
 import WatchVideo from './components/videos/WatchVideo';
 import VideoTest from './components/VIdeoTest';
@@ -31,8 +31,10 @@ function App() {
   }
 
 
+
   return (
     <BrowserRouter>
+      {loaded && !user && <Redirect to='/sign-up' />}
       <div id="ModalBackground" >
       </div>
       <CreateVideoModal user={user} />

@@ -33,6 +33,8 @@ const LoginForm = () => {
   const demoLogin = () => {
     let email = 'demo@aa.io'
     let password = 'password'
+    setEmail(email)
+    setPassword(password)
     dispatch(login(email, password));
   }
   //

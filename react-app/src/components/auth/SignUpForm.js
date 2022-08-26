@@ -117,10 +117,10 @@ const SignUpForm = () => {
         <div className='nothing'></div>
       </form>
     </div>
-    <div className='h4Div'>
+    {/* <div className='h4Div'>
       <h4>If you wish to feel around before signing up, then feel free to look around in the demo user.</h4>
       <button onClick={demoLogin} className='CreateCommentConfirmButton'>Demo Login</button>
-    </div>
+    </div> */}
   </div>
   );
 };
