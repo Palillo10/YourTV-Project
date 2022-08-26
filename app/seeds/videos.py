@@ -545,14 +545,16 @@ Music video by The Weeknd performing Out of Time (Audio). © 2022 The Weeknd XO,
 #   updated_at=(datetime.now())
 #  )
 
-#   template_video = Video(
-#   user_id=0, title='',
-#   description="""
-#   """,
-#   thumbnail='',
-#   video_data='',
-#   updated_at=(datetime.now())
-#  )
+  greeenj_video = Video(
+  user_id=7, title='Green Jelly - Three Little Pigs (Official Video)',
+  description="""Music video by Green Jelly performing Three Little Pigs. (C) 1993 Volcano Entertainment II, LLC
+
+#GreenJelly #ThreeLittlePigs #Vevo
+  """,
+  thumbnail='https://i.ytimg.com/vi/Gtffv9bpB-U/maxresdefault.jpg',
+  video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661533064/YourTv/green-jelly-three-little-pigs-official-video_numkhu.mp4',
+  updated_at=(datetime.now())
+ )
 
   db.session.add(beast_video)
   db.session.add(beast_video2)
@@ -560,12 +562,13 @@ Music video by The Weeknd performing Out of Time (Audio). © 2022 The Weeknd XO,
   db.session.add(mcr)
   db.session.add(mcr2)
   db.session.add(mcr3)
-  db.session.add(jakeP_video)
+  # db.session.add(jakeP_video)
   db.session.add(jakeP_video2)
   db.session.add(jakeP_video3)
   db.session.add(weeknd_video)
   db.session.add(weeknd_video2)
   db.session.add(weeknd_video3)
+  db.session.add(greeenj_video)
 
   db.session.commit()
 

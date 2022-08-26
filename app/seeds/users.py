@@ -76,12 +76,18 @@ Business: brands@jakepaul.com""",
         password='passwordweeknd',  updated_at=(datetime.now())
         )
 
+    green = User(
+        full_name='GreenJellyVEVO', channel_name='GreenJellyVEVO', email='greeenj@aa.io', avatar='https://yt3.ggpht.com/ytc/AMLnZu-6b0HiUlbT1ZfQ-0VH8wYrjNi92SXKRPBQ7RbC=s88-c-k-c0x00ffffff-no-rj',
+        password='passwordgreen',  updated_at=(datetime.now())
+        )
+
     db.session.add(demo)
     db.session.add(bts)
     db.session.add(mcr)
     db.session.add(beast)
     db.session.add(jakePaul)
     db.session.add(weeknd)
+    db.session.add(green)
 
     db.session.commit()
 
