@@ -9,7 +9,7 @@ import './HomePage.css'
 
 const HomePage = () => {
   const dispatch = useDispatch()
-  const videos = Object.values(useSelector(state => state.videos))
+  let videos = Object.values(useSelector(state => state.videos))
   useEffect(() => {
     dispatch(getVideosThunk())
   }, [dispatch])
@@ -17,6 +17,8 @@ const HomePage = () => {
 
   // console.log(videos)
   if (!videos) return null
+
+  videos = videos.sort(() => 0.5 - Math.random())
 
   return (<div className="HomePageBody">
     <div className='SideBarLinksContainer'>
