@@ -29,6 +29,21 @@ class Video(db.Model):
       'created_at': self.created_at,
       'updated_at': self.updated_at,
       'owner': self.owner.to_dict(),
-      'likes': [like for like in self.likes],
+      'likes': [like.to_dict() for like in self.likes],
       'comments': [comment.to_dict() for comment in self.comments]
     }
+
+
+  def to_dict2(self):
+      return {
+      'id': self.id,
+      'user_id': self.user_id,
+      'title': self.title,
+      'description': self.description,
+      'thumbnail': self.thumbnail,
+      'video_data': self.video_data,
+      'created_at': self.created_at,
+      'updated_at': self.updated_at,
+      'owner': self.owner.to_dict(),
+      'comments': [comment.to_dict() for comment in self.comments]
+      }

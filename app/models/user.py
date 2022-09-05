@@ -40,7 +40,20 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'email': self.email,
             'avatar': self.avatar,
-            'likes': [like for like in self.likes],
+            'likes': [like.to_dict() for like in self.likes],
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
+
+
+    def to_dict2(self):
+        return {
+            'id': self.id,
+            'full_name': self.full_name,
+            'channel_name': self.channel_name,
+            'bio': self.bio,
+            'email': self.email,
+            'avatar': self.avatar,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

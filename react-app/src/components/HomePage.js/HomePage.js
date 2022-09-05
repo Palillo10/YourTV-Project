@@ -77,6 +77,7 @@ const HomePage = () => {
                     </div>
                     <div className='VideoDetailRightLower'>
                       <div className='VideoDetailOwner'>{video.owner.channel_name}</div>
+                      <div> {video.likes.length} likes</div>
                     </div>
                   </div>
                 </div>

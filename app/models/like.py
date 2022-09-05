@@ -12,3 +12,9 @@ class Like(db.Model):
 
   user = db.relationship('User', back_populates="likes")
   video = db.relationship('Video', back_populates="likes")
+
+  def to_dict(self):
+    return {
+      'user': self.user.to_dict2(),
+      'video': self.video.to_dict2()
+    }
