@@ -16,6 +16,7 @@ class Video(db.Model):
 
   owner = db.relationship('User', back_populates="videos")
   comments = db.relationship('Comment', back_populates="video", cascade="all, delete")
+  likes = db.relationship('Like', back_populates="video")
 
   def to_dict(self):
     return {
@@ -28,5 +29,6 @@ class Video(db.Model):
       'created_at': self.created_at,
       'updated_at': self.updated_at,
       'owner': self.owner.to_dict(),
+      'likes': [like for like in self.likes],
       'comments': [comment.to_dict() for comment in self.comments]
     }
