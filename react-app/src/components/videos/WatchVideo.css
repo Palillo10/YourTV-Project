@@ -24,7 +24,7 @@
 
 .WatchVideoLeftVideoDetails {
   /* border: 1px solid black; */
-  border-bottom: 2px solid rgb(160, 160, 160, .3);
+  /* border-bottom: 2px solid rgb(160, 160, 160, .3); */
   width: 95%;
   min-height: 900px;
   display: flex;
@@ -40,16 +40,22 @@
   height: 700px;
 }
 
-.WatchVideoTitle {
+.WatchVideoTitleContainer {
   /* border: 1px solid orange; */
   border-bottom: 2px solid rgb(160, 160, 160, .3);
   width: 95%;
-  min-height: 46px;
+  min-height: 80px;
+  margin-bottom: 10px;
+}
+
+.WatchVideoTitle {
+  /* border: 1px solid red; */
+  width: 98%;
+  min-height: 35px;
   max-height: 46px;
   font-size: 18px;
   font-weight: 600;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
   overflow-wrap: break-word;
   overflow-y: hidden;
   hyphens: auto;
@@ -57,8 +63,14 @@
   hyphenate-character: "...";
 }
 
+.WatchVideoViews {
+  font-size: .95rem;
+  color: rgb(77, 77, 77);
+}
+
 .WatchVideoExtraDetails {
   /* border: 1px solid pink; */
+  border-bottom: 2px solid rgb(160, 160, 160, .3);
   width: 95%;
   min-height: 150px;
   display: flex;

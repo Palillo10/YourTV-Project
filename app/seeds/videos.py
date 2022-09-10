@@ -8,7 +8,7 @@ def seed_videos():
     user_id=4, title="I Cleaned The World's Dirtiest Beach #TeamSeas", description="""$1 Donated = 1 Pound Of Trash Out Of The Ocean -  https://teamseas.org/
 HELP US REMOVE 30,000,000 POUNDS OF TRASH FROM THE OCEAN BEFORE THE END OF THE YEAR!""",
     thumbnail="https://i.ytimg.com/vi/cV2gBU6hKfY/mqdefault.jpg", video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1660947627/YourTv/media.io_35a41eef291a434d9fb0e6232872759c_n5mpjx.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 14560000
   )
 
   beast_video2 = Video(
@@ -23,7 +23,7 @@ p.s. if you would like to sponsor our channel and help feed more people, email s
 Beast Philanthropy Video Disclaimer:
 This video was produced by Beast Philanthropy Productions, LLC, a North Carolina limited liability company. Any revenue generated for Beast Philanthropy Productions, LLC from this video will be donated to MrCharity, Inc. dba Beast Philanthropy, a North Carolina 501(c)(3) nonprofit corporation.""",
     thumbnail="https://i.ytimg.com/vi/yEBK_Ayeiyc/maxresdefault.jpg", video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1660950901/YourTv/We_Fed_Five_Cities_in_30_Days_zkpmqw.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 12020000
   )
 
   beast_video3 = Video(
@@ -32,7 +32,7 @@ https://www.sunmaid.com/
 
 Beast Philanthropy Video Disclaimer: This video was produced by Beast Philanthropy Productions, LLC, a North Carolina limited liability company. Any revenue generated for Beast Philanthropy Productions, LLC from this video will be donated to MrCharity, Inc. dba Beast Philanthropy, a North Carolina 501(c)(3) nonprofit corporation.""",
     thumbnail="https://www.tubefilter.com/wp-content/uploads/2022/08/mrbeast-school-philanthropy-1400x825.jpg", video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1660950863/YourTv/Giving_School_Supplies_To_The_Poorest_Schools_In_America_xalruc.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 9970000
   )
 
 
@@ -120,7 +120,7 @@ We want it all, we wanna play this part(We'll carry on...)
 
 #OfficialMusicVideo #MCR #WelcomeToTheBlackParade #WeAreWarnerRecords""", thumbnail="https://i.ytimg.com/vi/RRKJiM9Njr8/maxresdefault.jpg",
     video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1661105008/YourTv/media.io_1dd35565469448b19ca53796c3cd8c1a_lj6uvd.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 6380000
     )
 
   mcr2 = Video(
@@ -187,7 +187,7 @@ So long and goodnight
 
 #OfficialMusicVideo #MCR #Helena #WeAreWarnerRecords """, thumbnail="https://i.ytimg.com/vi/UCCyoocDxBA/maxresdefault.jpg",
     video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1661105587/YourTv/media.io_0d46253e86084407a0ca8057c3378693_qlydph.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 18914000
     )
 
   mcr3 = Video(
@@ -263,7 +263,7 @@ TWITTER ➤  http://twitter.com/JakePaul
 TIKTOK ➤ https://www.tiktok.com/@jakepaul?lang=en""",
     thumbnail="https://cdn.vox-cdn.com/thumbor/9s_Mi7hgk0yZiGPogoHFVnFAWec=/0x0:3409x2322/1200x800/filters:focal(1433x889:1977x1433)/cdn.vox-cdn.com/uploads/chorus_image/image/69402918/1321564366.5.jpg",
     video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1661306982/YourTv/jake-paul-vs-tyron-woodley-face-off_cpqpio.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 11904000
   )
 
   jakeP_video2 = Video(
@@ -308,7 +308,7 @@ Please be warned (and we cannot possibly stress this enough); under no circumsta
     """,
     thumbnail="https://i.ytimg.com/vi/EJjJank-mo0/maxresdefault.jpg",
     video_data="https://res.cloudinary.com/isaaccloud10/video/upload/v1661309581/YourTv/all-access-paul-vs.woodley-2-part-1_dpykpp.mp4",
-    updated_at=(datetime.now())
+    updated_at=(datetime.now()), views = 6541000
   )
 
   jakeP_video3 = Video(
@@ -322,7 +322,7 @@ TWITTER: http://twitter.com/JakePaul
   """,
   thumbnail='https://i.ytimg.com/vi/UycLZUh7Mhc/maxresdefault.jpg',
   video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661309838/YourTv/jake-paul-dana-white-diss-track-official-music-video_eq0vm1.mp4',
-  updated_at=(datetime.now())
+  updated_at=(datetime.now()), views = 11781000
  )
 
   weeknd_video = Video(
@@ -409,7 +409,7 @@ Music video by The Weeknd performing Blinding Lights. © 2020 The Weeknd XO, Inc
   """,
   thumbnail='https://i.ytimg.com/vi/4NRXx6U8ABQ/maxresdefault.jpg',
   video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661310581/YourTv/the-weeknd-blinding-lights-official-video_ajb6p1.mp4',
-  updated_at=(datetime.now())
+  updated_at=(datetime.now()), views = 8489000
  )
 
   weeknd_video2 = Video(
@@ -500,7 +500,7 @@ http://vevo.ly/7MOdnq
   """,
   thumbnail='https://i.ytimg.com/vi/XXYlFuWEuKI/maxresdefault.jpg',
   video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661310647/YourTv/the-weeknd-save-your-tears-official-music-video_bwz1za.mp4',
-  updated_at=(datetime.now())
+  updated_at=(datetime.now()), views = 30541000
  )
 
   weeknd_video3 = Video(
@@ -524,7 +524,7 @@ Music video by The Weeknd performing Out of Time (Audio). © 2022 The Weeknd XO,
   """,
   thumbnail='https://i.ytimg.com/vi/kxgj5af8zg4/maxresdefault.jpg',
   video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661311199/YourTv/the-weeknd-out-of-time-official-video_iztbgt.mp4',
-  updated_at=(datetime.now())
+  updated_at=(datetime.now()), views = 22916700
  )
 
 #   template_video = Video(
@@ -553,7 +553,7 @@ Music video by The Weeknd performing Out of Time (Audio). © 2022 The Weeknd XO,
   """,
   thumbnail='https://i.ytimg.com/vi/Gtffv9bpB-U/maxresdefault.jpg',
   video_data='https://res.cloudinary.com/isaaccloud10/video/upload/v1661533064/YourTv/green-jelly-three-little-pigs-official-video_numkhu.mp4',
-  updated_at=(datetime.now())
+  updated_at=(datetime.now()), views = 18771000
  )
 
   db.session.add(beast_video)

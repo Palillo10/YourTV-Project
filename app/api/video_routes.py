@@ -135,10 +135,13 @@ def upload_thumbnail():
   return {"url": url}
 
 
+@video_routes.route('/<int:videoId>/add-view', methods=["PUT"])
+def add_view(videoId):
+  video = Video.query.get(videoId)
+  video.views = video.views + 1
+  db.session.commit()
 
-
-
-
+  return {"video": video.to_dict()}
 
 
 

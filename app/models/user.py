@@ -46,14 +46,11 @@ class User(db.Model, UserMixin):
         }
 
 
-    def to_dict2(self):
+    def to_dict_like(self):
         return {
             'id': self.id,
             'full_name': self.full_name,
             'channel_name': self.channel_name,
-            'bio': self.bio,
-            'email': self.email,
-            'avatar': self.avatar,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

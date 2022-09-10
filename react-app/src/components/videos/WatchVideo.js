@@ -19,7 +19,7 @@ const WatchVideo = () => {
   const videos = Object.values(allVideos)
   const comments = Object.values(useSelector(state => state.comments))
 
-  console.log("HISTORY", history)
+
   useEffect(() => {
     const funct = async () => {
       const videos = await dispatch(getVideosThunk())
@@ -29,6 +29,9 @@ const WatchVideo = () => {
         history.replace("/")
       }
       dispatch(getCommentsThunk(videoId))
+      await fetch(`/api/videos/${videoId}/add-view`, {
+        method: "PUT"
+      })
     }
 
     funct()
@@ -48,15 +51,19 @@ const WatchVideo = () => {
 
 
 
+
+
   if (!video) return null
 
-  console.log(video.video_data)
 
   return (<div className="WatchVideoPageBody">
     <div className="WatchVideoPageLeft">
       <div className="WatchVideoLeftVideoDetails">
         <video src={video.video_data} className="WatchVideoVideoElement" controls autoPlay />
-        <div className="WatchVideoTitle"> {video.title}</div>
+        <div className="WatchVideoTitleContainer">
+          <div className="WatchVideoTitle"> {video.title}</div>
+          <div className="WatchVideoViews"> {video.views} views</div>
+        </div>
         <div className="WatchVideoExtraDetails">
           <div className="WatchVideoCreatorDetailsButton">
             <div className="WatchVideoCreatorDetails">

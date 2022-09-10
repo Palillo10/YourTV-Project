@@ -20,6 +20,32 @@ const HomePage = () => {
 
   videos = videos.sort(() => 0.5 - Math.random())
 
+
+  function shortenViews(num) {
+    num = num.toString().replace(/[^0-9.]/g, '');
+    if (num < 1000) {
+      return num;
+    }
+    let si = [
+      { v: 1E3, s: "K" },
+      { v: 1E6, s: "M" },
+      { v: 1E9, s: "B" },
+      { v: 1E12, s: "T" },
+      { v: 1E15, s: "P" },
+      { v: 1E18, s: "E" }
+    ];
+    let index;
+    for (index = si.length - 1; index > 0; index--) {
+      if (num >= si[index].v) {
+        break;
+      }
+    }
+    return (num / si[index].v).toFixed(2) + si[index].s;
+  }
+
+
+
+
   return (<div className="HomePageBody">
     <div className='SideBarLinksContainer'>
       <a href="https://github.com/Palillo10/YourTV-Project" target="_blank" rel="noopener noreferrer" style={{ height: "26px", width: "26px", margin: "10px 0" }} >
@@ -77,7 +103,7 @@ const HomePage = () => {
                     </div>
                     <div className='VideoDetailRightLower'>
                       <div className='VideoDetailOwner'>{video.owner.channel_name}</div>
-                      <div> {video.likes.length} likes</div>
+                      <div className='VideoDetailViews'> {shortenViews(video.views)} views</div>
                     </div>
                   </div>
                 </div>

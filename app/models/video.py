@@ -10,8 +10,10 @@ class Video(db.Model):
   description = db.Column(db.Text, nullable=True)
   thumbnail = db.Column(db.Text, nullable=True, default="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgdtC5sgMG3qe3ktKKoKWBmn4FKVvPKVGfSU-JrUpc4IoANXGPnV0gmbAvr7zzEGn464&usqp=CAU")
   video_data = db.Column(db.Text, nullable=False)
+  views = db.Column(db.Integer, nullable=True, default=(0))
   created_at = db.Column(db.DateTime, nullable=False, default=(datetime.now()))
   updated_at = db.Column(db.DateTime, nullable=False)
+
 
 
   owner = db.relationship('User', back_populates="videos")
@@ -26,6 +28,7 @@ class Video(db.Model):
       'description': self.description,
       'thumbnail': self.thumbnail,
       'video_data': self.video_data,
+      'views': self.views,
       'created_at': self.created_at,
       'updated_at': self.updated_at,
       'owner': self.owner.to_dict(),
@@ -34,16 +37,13 @@ class Video(db.Model):
     }
 
 
-  def to_dict2(self):
+  def to_dict_like(self):
       return {
       'id': self.id,
       'user_id': self.user_id,
       'title': self.title,
-      'description': self.description,
-      'thumbnail': self.thumbnail,
+      'views': self.views,
       'video_data': self.video_data,
       'created_at': self.created_at,
       'updated_at': self.updated_at,
-      'owner': self.owner.to_dict(),
-      'comments': [comment.to_dict() for comment in self.comments]
       }
