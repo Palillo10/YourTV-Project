@@ -66,6 +66,8 @@
 .WatchVideoViews {
   font-size: .95rem;
   color: rgb(77, 77, 77);
+  display: flex;
+  justify-content: space-between;
 }
 
 .WatchVideoExtraDetails {
