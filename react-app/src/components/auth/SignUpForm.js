@@ -54,73 +54,77 @@ const SignUpForm = () => {
   }
 
   return (<div className='Signup-LoginBody'>
+
     <div className='h2Div'>
       <h2 >Hello, welcome to 'YourTv'. The website where you can share videos of your favorite life moments and share them with people all around the world. Share music, vlogging, gaming, cooking, or any other kind of video you would like. </h2>
     </div>
-    <div className='SignUp-LoginFormDiv'>
-      <form className="SignUp-LoginForm" onSubmit={onSignUp}>
-        <div className='ActualForm'>
+    <div className='SignUp-Center-Box'>
+      <div className='SignUp-VideoPreviews-Box'></div>
+      <div className='SignUp-LoginFormDiv'>
+        <form className="SignUp-LoginForm" onSubmit={onSignUp}>
+          <div className='ActualForm'>
 
-          <div >
-            {errors.map((error, ind) => (
-              <div className="errors" key={ind}>{error}</div>
-            ))}
+            <div >
+              {errors.map((error, ind) => (
+                <div className="errors" key={ind}>{error}</div>
+              ))}
+            </div>
+            <div>
+              <label>Full Name</label>
+              <input
+                type='text'
+                name='full_name'
+                onChange={e => setFull_Name(e.target.value)}
+                value={full_name}
+              ></input>
+            </div>
+            <div>
+              <label>Channel Name</label>
+              <input
+                type='text'
+                name='channel_name'
+                onChange={updateUsername}
+                value={channel_name}
+              ></input>
+            </div>
+            <div>
+              <label>Email</label>
+              <input
+                type='text'
+                name='email'
+                onChange={updateEmail}
+                value={email}
+              ></input>
+            </div>
+            <div>
+              <label>Password</label>
+              <input
+                type='password'
+                name='password'
+                onChange={updatePassword}
+                value={password}
+              ></input>
+            </div>
+            <div>
+              <label>Repeat Password</label>
+              <input
+                type='password'
+                name='repeat_password'
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+            </div>
+            <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Sign Up</button>
           </div>
-          <div>
-            <label>Full Name</label>
-            <input
-              type='text'
-              name='full_name'
-              onChange={e => setFull_Name(e.target.value)}
-              value={full_name}
-            ></input>
-          </div>
-          <div>
-            <label>Channel Name</label>
-            <input
-              type='text'
-              name='channel_name'
-              onChange={updateUsername}
-              value={channel_name}
-            ></input>
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              type='text'
-              name='email'
-              onChange={updateEmail}
-              value={email}
-            ></input>
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type='password'
-              name='password'
-              onChange={updatePassword}
-              value={password}
-            ></input>
-          </div>
-          <div>
-            <label>Repeat Password</label>
-            <input
-              type='password'
-              name='repeat_password'
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-          </div>
-          <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Sign Up</button>
-        </div>
-        <div className='nothing'></div>
-      </form>
-    </div>
-    {/* <div className='h4Div'>
+          <div className='nothing'></div>
+        </form>
+      </div>
+      {/* <div className='h4Div'>
       <h4>If you wish to feel around before signing up, then feel free to look around in the demo user.</h4>
       <button onClick={demoLogin} className='CreateCommentConfirmButton'>Demo Login</button>
     </div> */}
+    </div>
   </div>
   );
 };

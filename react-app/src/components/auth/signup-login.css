@@ -9,14 +9,12 @@
   background-color: #f9f9f9;
 }
 
-.SignUp-LoginFormDiv {
-  border: 2px solid black;
-  width: 500px;
-  height: 250px;
-}
-
 .SignUp-LoginForm {
   display: flex;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
 }
 
 .nothing {
@@ -29,7 +27,7 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  /* justify-content: flex-end; */
   align-items: flex-end;
 }
 
@@ -40,7 +38,8 @@
 .h2Div {
   width: 900px;
   text-align: center;
-  margin: 80px;
+  margin-top: 80px;
+  font-size: 14px;
 }
 
 
@@ -48,4 +47,24 @@
   width: 900px;
   text-align: center;
   margin: 40px;
+}
+
+.SignUp-Center-Box {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  width: 750px;
+
+}
+
+.SignUp-LoginFormDiv {
+  border: 2px solid black;
+  /* width: 750px; */
+  height: 500px;
+  width: 55%;
+}
+
+.SignUp-VideoPreviews-Box {
+  border: 1px solid blue;
+  width: 45%;
 }
