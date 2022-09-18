@@ -11,17 +11,13 @@
 
 .SignUp-LoginForm {
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-items: center;
   justify-content: center;
   width: 300px;
 }
 
-.nothing {
-  width: 30%;
-  /* border: 1px solid black; */
-  /*  */
-}
+
 
 .ActualForm {
   width: 70%;
@@ -29,10 +25,12 @@
   flex-direction: column;
   /* justify-content: flex-end; */
   align-items: flex-end;
+  /* border: 1px solid black; */
 }
 
 .ActualForm>div {
   margin: 5px 0;
+  /* border: 1px solid blue; */
 }
 
 .h2Div {
@@ -58,13 +56,69 @@
 }
 
 .SignUp-LoginFormDiv {
-  border: 2px solid black;
+  border: 2px solid rgb(160, 160, 160, .3);
+  background-color: #fff;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
   /* width: 750px; */
-  height: 500px;
+  height: 600px;
   width: 55%;
 }
 
 .SignUp-VideoPreviews-Box {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 45%;
+  position: relative;
+}
+
+
+.Signup-Login-Form-Input {
+  border: 1px solid rgba(160, 160, 160, 0.726);
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  width: 100%;
+  font-size: 15px;
+  height: 30px;
+}
+
+
+.login-link {
+  margin-top: 15px;
+  color: rgba(32, 92, 255, 0.87);
+}
+
+.login-link:hover {
+  color: rgba(1, 81, 219, 0.987);
+}
+
+.SignUp-Video {
+  border: 3px solid black;
+  height: 200px;
+  width: 300px;
+  position: relative;
+}
+
+#SignUp-Video1 {
+  top: 55px;
+  left: -50px;
+}
+
+#SignUp-Video2 {
+  top: -20px;
+  left: 5px;
+  z-index: 5;
+}
+
+#SignUp-Video3 {
+  top: -95px;
+  left: -50px;
+}
+
+#YourTvTitle {
+  font-family: Luminari, cursive;
+  /* font-weight: 100; */
+  font-size: 40px;
+  margin-bottom: 5px;
 }
