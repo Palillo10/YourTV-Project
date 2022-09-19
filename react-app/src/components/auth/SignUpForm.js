@@ -61,9 +61,9 @@ const SignUpForm = () => {
     </div>
     <div className='SignUp-Center-Box'>
       <div className='SignUp-VideoPreviews-Box'>
-        <img className="SignUp-Video" id="SignUp-Video1" src='https://i.ytimg.com/an_webp/cV2gBU6hKfY/mqdefault_6s.webp?du=3000&sqp=CNa-nZkG&rs=AOn4CLA2I2mWeeWvETDD4z3Zkuv5clq3sw' />
-        <img className="SignUp-Video" id="SignUp-Video2" src='https://i.ytimg.com/an_webp/4tYoVx0QoN0/mqdefault_6s.webp?du=3000&sqp=CP7MnZkG&rs=AOn4CLDXzGAN0OkfAlc_0yU9LBgljHm80Q' />
-        <img className="SignUp-Video" id="SignUp-Video3" src='https://i.ytimg.com/an_webp/UCCyoocDxBA/mqdefault_6s.webp?du=3000&sqp=CIDBnZkG&rs=AOn4CLA-Mqysy47NLGkA8PBGpbcxVtmvig' />
+        <img className="SignUp-Video" id="SignUp-Video1" src='https://i.ytimg.com/vi/kYpxolRkaSo/maxresdefault.jpg' />
+        <img className="SignUp-Video" id="SignUp-Video2" src='https://i.ytimg.com/vi/cV2gBU6hKfY/mqdefault.jpg' />
+        <img className="SignUp-Video" id="SignUp-Video3" src='https://i.ytimg.com/vi/RRKJiM9Njr8/maxresdefault.jpg' />
       </div>
       <div className='SignUp-LoginFormDiv'>
         <h1 id='YourTvTitle'> YourTv</h1>

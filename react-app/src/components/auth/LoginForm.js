@@ -39,45 +39,55 @@ const LoginForm = () => {
   }
   //
 
-  return (<div className='Signup-LoginBody' style={{ justifyContent: "center" }}>
-    <h4>Feel Free to Login to get the best experience.</h4>
+  return (<div className='Signup-LoginBody' >
 
-    <div className='SignUp-LoginFormDiv'>
-      <form className="SignUp-LoginForm" onSubmit={onLogin}>
-        <div className='ActualForm'>
-
-          <div >
-            {errors.map((error, ind) => (
-              <div className="errors" key={ind}>{error}</div>
-            ))}
-          </div>
-          <div>
-            <label htmlFor='email'>Email</label>
-            <input
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Login</button>
-          <button onClick={demoLogin} className='CreateCommentConfirmButton' style={{ marginTop: "25px" }}>Demo Login</button>
-        </div>
-        <div className='nothing'></div>
-      </form>
+    <div className='h2Div'>
+      <h2
+      >Welcome to 'YourTv'. The website where you can share videos of your favorite life moments and share them with people all around the world. Share music, vlogging, gaming, cooking, or any other kind of video you would like. </h2>
     </div>
-    <div className='h4Div'>
+    <div className='SignUp-Center-Box'>
+      <div className='SignUp-VideoPreviews-Box'>
+        <img className="SignUp-Video" id="SignUp-Video1" src='https://i.ytimg.com/vi/kYpxolRkaSo/maxresdefault.jpg' />
+        <img className="SignUp-Video" id="SignUp-Video2" src='https://i.ytimg.com/vi/cV2gBU6hKfY/mqdefault.jpg' />
+        <img className="SignUp-Video" id="SignUp-Video3" src='https://i.ytimg.com/vi/RRKJiM9Njr8/maxresdefault.jpg' />
+      </div>
+      <div className='SignUp-LoginFormDiv'>
+        <h1 id='YourTvTitle'> YourTv</h1>
+        <form className="SignUp-LoginForm" onSubmit={onLogin}>
+          <div className='ActualForm'>
+
+            <div >
+              {errors.map((error, ind) => (
+                <div className="errors" key={ind}>{error}</div>
+              ))}
+            </div>
+            <div>
+              <label htmlFor='email'>Email</label>
+              <input
+                className='Signup-Login-Form-Input'
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div>
+              <label htmlFor='password'>Password</label>
+              <input
+                className='Signup-Login-Form-Input'
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Login</button>
+            <button onClick={demoLogin} className='CreateCommentConfirmButton' style={{ marginTop: "25px" }}>Demo Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   );
