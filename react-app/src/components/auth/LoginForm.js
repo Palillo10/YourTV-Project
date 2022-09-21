@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -84,9 +85,10 @@ const LoginForm = () => {
               />
             </div>
             <button type='submit' className='CreateCommentConfirmButton' style={{ width: "90px", border: "2px solid black" }}>Login</button>
-            <button onClick={demoLogin} className='CreateCommentConfirmButton' style={{ marginTop: "25px" }}>Demo Login</button>
           </div>
         </form>
+        <NavLink className='login-link' to='/sign-up'> Create A New Account</NavLink>
+        <button onClick={demoLogin} className='DemoLoginButton'>Demo Login</button>
       </div>
     </div>
   </div>
