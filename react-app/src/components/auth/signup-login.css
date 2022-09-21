@@ -123,3 +123,24 @@
   font-size: 40px;
   margin-bottom: 5px;
 }
+
+
+.DemoLoginButton {
+  background-color: rgba(4, 93, 248, 0.987);
+  border-color: black 1px solid;
+  color: aliceblue;
+  /* border: 0; */
+  border-radius: 5px;
+  font-weight: 700;
+  height: 50px;
+  width: 75px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 100px
+}
+
+
+.DemoLoginButton:active {
+  background-color: rgba(56, 124, 241, 0.987);
+}

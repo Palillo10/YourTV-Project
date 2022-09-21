@@ -7,6 +7,7 @@ import CreateCommentForm from "../comments.js/CreateCommentForm"
 import { getCommentsThunk } from "../../store/comments"
 import EditCommentForm from "../comments.js/EditCommentForm"
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import './WatchVideo.css'
 
 const WatchVideo = () => {
@@ -62,12 +63,18 @@ const WatchVideo = () => {
         <video src={video.video_data} className="WatchVideoVideoElement" controls autoPlay />
         <div className="WatchVideoTitleContainer">
           <div className="WatchVideoTitle"> {video.title}</div>
-          <div className="WatchVideoViews">
-            <div>
+          <div className="WatchVideoViewsLikes">
+            <div className="WatchVideoViews">
               {video.views} views
             </div>
-            <div>
-              {video.likes.length}< ThumbUpOffAltIcon />
+            <div className="WatchVideoLikesContainer">
+              {sessionUser && <>
+                < ThumbUpOffAltIcon className="Like-Button" />
+                <div>
+                  {video.likes.length}
+                </div>
+              </>
+              }
             </div>
           </div>
         </div>

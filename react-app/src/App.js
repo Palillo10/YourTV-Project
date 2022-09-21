@@ -64,9 +64,18 @@ function App() {
         <Route path='/' exact={true} >
           <HomePage />
         </Route>
-        <Route path="">
-          <Redirect to="/" />
-        </Route>
+        {user &&
+          <Route path="">
+            <Redirect to="/" />
+          </Route>
+
+        }
+        {!user &&
+          <Route path="">
+            <Redirect to="/sign-up" />
+          </Route>
+
+        }
       </Switch>
     </BrowserRouter>
   );

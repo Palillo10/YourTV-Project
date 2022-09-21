@@ -81,6 +81,7 @@ const SignUpForm = () => {
                 className='Signup-Login-Form-Input'
                 type='text'
                 name='full_name'
+                placeholder='Full Name'
                 onChange={e => setFull_Name(e.target.value)}
                 value={full_name}
               ></input>
@@ -91,6 +92,7 @@ const SignUpForm = () => {
                 className='Signup-Login-Form-Input'
                 type='text'
                 name='channel_name'
+                placeholder='Channel Name'
                 onChange={updateUsername}
                 value={channel_name}
               ></input>
@@ -101,6 +103,7 @@ const SignUpForm = () => {
                 className='Signup-Login-Form-Input'
                 type='text'
                 name='email'
+                placeholder='Email'
                 onChange={updateEmail}
                 value={email}
               ></input>
@@ -111,6 +114,7 @@ const SignUpForm = () => {
                 className='Signup-Login-Form-Input'
                 type='password'
                 name='password'
+                placeholder='Password'
                 onChange={updatePassword}
                 value={password}
               ></input>
@@ -121,6 +125,7 @@ const SignUpForm = () => {
                 className='Signup-Login-Form-Input'
                 type='password'
                 name='repeat_password'
+                placeholder='Repeat Password'
                 onChange={updateRepeatPassword}
                 value={repeatPassword}
                 required={true}
