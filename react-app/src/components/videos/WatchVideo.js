@@ -26,6 +26,9 @@ const WatchVideo = () => {
     const funct = async () => {
       const videos = await dispatch(getVideosThunk())
 
+
+
+
       const ids = videos.map(video => video.id)
       if (!(ids.includes(Number(videoId)))) {
         history.replace("/")
@@ -51,10 +54,36 @@ const WatchVideo = () => {
     element.style.height = "25px"
   }
 
-
-
-
   if (!video) return null
+
+  let videoLikers = video.likes.map(like => {
+    return like.user.channel_name
+  })
+  let sessionLike = false
+  if (sessionUser && videoLikers.includes(sessionUser.channel_name)) {
+    sessionLike = true
+  }
+
+
+
+  const LikeVideo = async () => {
+    if (sessionLike) return
+    const response = await fetch(`api/videos/${video.id}/add-like`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId: sessionUser.id })
+    })
+    dispatch(getVideosThunk())
+  }
+
+
+  const DislikeVideo = async () => {
+    const response = await fetch(`api/videos/${video.id}/remove-like`)
+  }
+
+
 
 
   return (<div className="WatchVideoPageBody">
@@ -68,8 +97,15 @@ const WatchVideo = () => {
               {video.views} views
             </div>
             <div className="WatchVideoLikesContainer">
-              {sessionUser && <>
-                < ThumbUpOffAltIcon className="Like-Button" />
+              {!sessionLike && <>
+                < ThumbUpOffAltIcon className="Like-Button" onClick={LikeVideo} />
+                <div>
+                  {video.likes.length}
+                </div>
+              </>
+              }
+              {sessionUser && sessionLike && <>
+                < ThumbUpAltIcon className="Like-Button" />
                 <div>
                   {video.likes.length}
                 </div>
