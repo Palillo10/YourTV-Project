@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
 from datetime import datetime
-from app.models import Video, db
+from app.models import Video, db, User, Like
 from app.forms import VideoForm
 # from ffmpy import FFmpeg
 # import cv2
@@ -145,6 +145,18 @@ def add_view(videoId):
 
 
 
+@video_routes.route('/<int:videoId>/add-like', methods=["PUT"])
+def add_like(videoId):
+  video = Video.query.get(videoId)
+  user = User.query.get(request.get_json()["userId"])
+  new_like = Like(
+    user_id = user.id,
+    video_id = video.id
+  )
+  db.session.add(new_like)
+  db.session.commit()
+
+  return {"video": video.to_dict()}
 
 
 
