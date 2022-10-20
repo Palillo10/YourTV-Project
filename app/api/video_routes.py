@@ -159,6 +159,14 @@ def add_like(videoId):
   return {"video": video.to_dict()}
 
 
+@video_routes.route('/<int:videoId>/remove-like', methods=["PUT"])
+def remove_like(videoId):
+  # video = Video.query.get(videoId)
+  # user = User.query.get(request.get_json()["userId"])
+  like = Like.query.filter_by(user_id=request.get_json()["userId"], video_id=videoId).first()
+  db.session.delete(like)
+  db.session.commit()
+  return {"deleted": "deleted"}
 
 
 

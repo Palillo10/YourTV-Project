@@ -15,6 +15,7 @@ class Like(db.Model):
 
   def to_dict(self):
     return {
+      'id': self.id,
       'user': self.user.to_dict_like(),
       'video': self.video.to_dict_like()
     }
