@@ -48,9 +48,9 @@ const LoginForm = () => {
     </div>
     <div className='SignUp-Center-Box'>
       <div className='SignUp-VideoPreviews-Box'>
-        <img className="SignUp-Video" id="SignUp-Video1" src='https://i.ytimg.com/vi/kYpxolRkaSo/maxresdefault.jpg' />
-        <img className="SignUp-Video" id="SignUp-Video2" src='https://i.ytimg.com/vi/cV2gBU6hKfY/mqdefault.jpg' />
-        <img className="SignUp-Video" id="SignUp-Video3" src='https://i.ytimg.com/vi/RRKJiM9Njr8/maxresdefault.jpg' />
+        <img className="SignUp-Video" id="SignUp-Video1" src='https://i.ytimg.com/vi/kYpxolRkaSo/maxresdefault.jpg' alt="Clément Mihailescu" />
+        <img className="SignUp-Video" id="SignUp-Video2" src='https://i.ytimg.com/vi/cV2gBU6hKfY/mqdefault.jpg' alt="mr. beast" />
+        <img className="SignUp-Video" id="SignUp-Video3" src='https://i.ytimg.com/vi/RRKJiM9Njr8/maxresdefault.jpg' alt="my chemical romance" />
       </div>
       <div className='SignUp-LoginFormDiv'>
         <h1 id='YourTvTitle'> YourTv</h1>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getSingleUserThunk } from '../../store/user';
@@ -17,7 +17,7 @@ function User() {
   useEffect(() => {
     dispatch(getSingleUserThunk(channelName))
     dispatch(getVideosThunk())
-  }, [channelName]);
+  }, [channelName, dispatch]);
 
   if (!user || !videos) {
     return null;
@@ -68,7 +68,7 @@ function User() {
       <div className='UserPageContainer'>
         <div className='UserPageTop'>
           <div className='UserPageDetails'>
-            <img className='UserPageAvatar' src={user.avatar} />
+            <img className='UserPageAvatar' src={user.avatar} alt="user Avatar" />
             <h2 className='UserPageChannelName'>{user.channel_name}</h2>
           </div>
           <div className='UserPageNavBar'>

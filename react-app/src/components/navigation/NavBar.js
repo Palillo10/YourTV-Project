@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SideBar from './Siderbar';
+// import SideBar from './Siderbar';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import { useSelector } from 'react-redux';
-import CreateVideoModal from './CreateVideo/CreateVideoModal';
+// import CreateVideoModal from './CreateVideo/CreateVideoModal';
 import SearchBar from './SearchBar/SearchBar';
 import UploadFormIcon from './CreateVideo/UploadFormIcon';
 

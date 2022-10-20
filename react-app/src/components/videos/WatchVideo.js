@@ -40,7 +40,7 @@ const WatchVideo = () => {
     }
 
     funct()
-  }, [dispatch, videoId])
+  }, [dispatch, videoId, history])
 
   const openShowMoreFunction = () => {
     setOpenShowMore(true)
@@ -67,8 +67,8 @@ const WatchVideo = () => {
 
 
   const LikeVideo = async () => {
-    if (sessionLike) return
-    const response = await fetch(`api/videos/${video.id}/add-like`, {
+    if (!sessionUser) return
+    await fetch(`api/videos/${video.id}/add-like`, {
       method: "PUT",
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,15 @@ const WatchVideo = () => {
 
 
   const DislikeVideo = async () => {
-    const response = await fetch(`api/videos/${video.id}/remove-like`)
+    await fetch(`api/videos/${video.id}/remove-like`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId: sessionUser.id })
+    })
+    dispatch(getVideosThunk())
+    console.log("dislike")
   }
 
 
@@ -105,7 +113,7 @@ const WatchVideo = () => {
               </>
               }
               {sessionUser && sessionLike && <>
-                < ThumbUpAltIcon className="Like-Button" />
+                < ThumbUpAltIcon className="Like-Button" onClick={DislikeVideo} />
                 <div>
                   {video.likes.length}
                 </div>
