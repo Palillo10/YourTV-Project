@@ -21,10 +21,10 @@ const HomePage = () => {
   videos = videos.sort(() => 0.5 - Math.random())
 
 
-  function shortenViews(num) {
-    num = num.toString().replace(/[^0-9.]/g, '');
-    if (num < 1000) {
-      return num;
+  function shortenViews(views) {
+    views = views.toString().replace(/[^0-9.]/g, '');
+    if (views < 1000) {
+      return views;
     }
     let si = [
       { v: 1E3, s: "K" },
@@ -36,11 +36,11 @@ const HomePage = () => {
     ];
     let index;
     for (index = si.length - 1; index > 0; index--) {
-      if (num >= si[index].v) {
+      if (views >= si[index].v) {
         break;
       }
     }
-    return (num / si[index].v).toFixed(2) + si[index].s;
+    return (views / si[index].v).toFixed(2) + si[index].s;
   }
 
 
