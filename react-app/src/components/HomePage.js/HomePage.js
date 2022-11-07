@@ -22,6 +22,7 @@ const HomePage = () => {
 
 
   function shortenViews(views) {
+    // abbreviates views of videos
     views = views.toString().replace(/[^0-9.]/g, '');
     if (views < 1000) {
       return views;
