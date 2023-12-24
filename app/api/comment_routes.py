@@ -64,7 +64,7 @@ def update_comment(commentId):
 @login_required
 def delete_comment(commentId):
   comment = Comment.query.get(commentId)
-  print(comment)
+  # print(comment)
   db.session.delete(comment)
   db.session.commit()
   return {"deleted": "deleted"}

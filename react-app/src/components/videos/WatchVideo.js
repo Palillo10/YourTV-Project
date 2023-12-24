@@ -88,7 +88,7 @@ const WatchVideo = () => {
       body: JSON.stringify({ userId: sessionUser.id })
     })
     dispatch(getVideosThunk())
-    console.log("dislike")
+    // console.log("dislike")
   }
 
 

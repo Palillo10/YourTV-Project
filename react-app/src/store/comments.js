@@ -109,7 +109,7 @@ export const deleteCommentThunk = (commentId) => async dispatch => {
   if (response.ok) {
     const data = await response.json()
     dispatch(deleteCommentAction(commentId))
-    console.log(data)
+    // console.log(data)
     return data.deleted
   } else {
     return "ERROR"
